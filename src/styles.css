@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-
+@import '~ngx-toastr/toastr';
 
 .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
@@ -61,16 +61,20 @@
     margin-top: 10%;
 }
 .btnRegister{
-    float: right;
-    margin-top: 10%;
-    border: none;
-    border-radius: 1.5rem;
-    padding: 2%;
-    background: #0062cc;
-    color: #fff;
-    font-weight: 600;
-    width: 50%;
-    cursor: pointer;
+  float: right;
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #0062cc;
+  color: #fff;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
+}
+.btnRegister:disabled{
+  background: gray;
+  cursor: not-allowed;
 }
 .register .nav-tabs{
     margin-top: 3%;
@@ -113,13 +117,13 @@
     width: 40px;
     height: 20px;
   }
-  
-  .switch input { 
+
+  .switch input {
     opacity: 0;
     width: 0;
     height: 0;
   }
-  
+
   .slider {
     position: absolute;
     cursor: pointer;
@@ -131,7 +135,7 @@
     -webkit-transition: .3s;
     transition: .3s;
   }
-  
+
   .slider:before {
     position: absolute;
     content: "";
@@ -144,26 +148,26 @@
     transition: .3s;
 
   }
-  
+
   input:checked + .slider {
     background-color: #3931af;
   }
-  
+
   input:focus + .slider {
     box-shadow: 0 0 1px #3931af;
   }
-  
+
   input:checked + .slider:before {
     -webkit-transform: translateX(17px);
     -ms-transform: translateX(17px);
     transform: translateX(17px);
   }
-  
+
   /* Rounded sliders */
   .slider.round {
     border-radius: 34px;
   }
-  
+
   .slider.round:before {
     border-radius: 50%;
   }

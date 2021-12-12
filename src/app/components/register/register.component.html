@@ -2,7 +2,7 @@
     <div class="container register">
         <div class="row">
             <div class="col-md-3 register-left">
-                <img src="/assets/img/Logo_blanco.png" alt="INCO logo"/>
+                <img src="/src/assets/img/Logo_blanco.png" alt="INCO logo"/>
                 <h1>INCO</h1>
                 <a href="/">
                 <input type="submit" name="" value="Login"/><br/></a>
@@ -11,7 +11,7 @@
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active"  role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">User register</h3>
-                        <form [formGroup]="form" (ngSubmit)="submitForm()">
+                        <form [formGroup]="registerForm" (ngSubmit)="submitForm()">
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
