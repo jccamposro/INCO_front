@@ -4,9 +4,11 @@ import { LoginComponent } from './login/login.component';
 import { RegisterCompanyComponent } from './register-company/register-company.component';
 import { RegisterInfluencerComponent } from './register-influencer/register-influencer.component';
 import { RegisterComponent } from './register/register.component';
+import { ResetPassComponent } from './reset-pass/reset-pass.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegisterComponent },
+  { path: 'resetPass', component: ResetPassComponent },
   { path: 'login', component: LoginComponent },
   { path: 'registro/influencer', component: RegisterInfluencerComponent },
   { path: 'registro/company', component: RegisterCompanyComponent },

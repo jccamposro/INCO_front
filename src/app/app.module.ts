@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { RegisterCompanyComponent } from './register-company/register-company.component';
 import { RegisterInfluencerComponent } from './register-influencer/register-influencer.component';
+import { ResetPassComponent } from './reset-pass/reset-pass.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { RegisterInfluencerComponent } from './register-influencer/register-infl
     RegisterComponent,
     LoginComponent,
     RegisterCompanyComponent,
-    RegisterInfluencerComponent
+    RegisterInfluencerComponent,
+    ResetPassComponent
   ],
   imports: [
     BrowserModule,
