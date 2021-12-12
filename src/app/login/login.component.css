@@ -1,4 +1,7 @@
 body{
-    background-color: brown;
-    margin: 50%;
+    margin: 0;
+    height: 100vh;
+    background-size: cover;
+    padding: 0;
+    background: -webkit-linear-gradient(left, #3931af, #00c6ff);
 }
