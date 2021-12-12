@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginService } from "../../services/login.service";
+import { AuthService } from "../../services/auth.service";
 import { FormBuilder, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { GenericResponse } from "../../entities/reponse.interface";
@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
 
     public loginForm: FormGroup | undefined;
 
-    constructor(private loginService: LoginService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) {
+    constructor(private authService: AuthService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) {
     }
 
     ngOnInit() {
@@ -26,7 +26,7 @@ export class LoginComponent implements OnInit {
 
     public sendLogin(): void {
         if (this.loginForm?.valid) {
-            this.loginService.sendLogin(this.loginForm?.value.name_user, this.loginForm?.value.password)
+            this.authService.sendLogin(this.loginForm?.value.name_user, this.loginForm?.value.password)
                 .subscribe((response: GenericResponse) => {
                     if (response.role === 1) {
                         this.router.navigateByUrl('/colab') // aqui va emp
