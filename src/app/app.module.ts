@@ -10,6 +10,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { RegisterCompanyComponent } from './register-company/register-company.component';
 import { RegisterInfluencerComponent } from './register-influencer/register-influencer.component';
 import { ResetPassComponent } from './reset-pass/reset-pass.component';
+import { PerfilInfluencerComponent } from './perfil-influencer/perfil-influencer.component';
+import { InfluencerColabComponent } from './influencer-colab/influencer-colab.component';
+import { InfluencerCalificationsComponent } from './influencer-califications/influencer-califications.component';
+import { InfluencerConfComponent } from './influencer-conf/influencer-conf.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +22,11 @@ import { ResetPassComponent } from './reset-pass/reset-pass.component';
     LoginComponent,
     RegisterCompanyComponent,
     RegisterInfluencerComponent,
-    ResetPassComponent
+    ResetPassComponent,
+    PerfilInfluencerComponent,
+    InfluencerColabComponent,
+    InfluencerCalificationsComponent,
+    InfluencerConfComponent
   ],
   imports: [
     BrowserModule,
