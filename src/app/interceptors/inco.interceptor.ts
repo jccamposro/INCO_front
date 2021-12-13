@@ -32,6 +32,7 @@ export class IncoInterceptor implements HttpInterceptor {
             catchError((err: HttpErrorResponse) => {
 
                 if (err.status === 401) {
+                    localStorage.removeItem('token')
                     this.router.navigateByUrl('/login');
                 }
 
