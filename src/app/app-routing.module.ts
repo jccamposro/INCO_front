@@ -9,10 +9,10 @@ import { RegisterCompanyComponent } from './components/register-company/register
 import { RegisterInfluencerComponent } from './components/register-influencer/register-influencer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
-import { EntrepreneurCalificationsComponent } from './entrepreneur-califications/entrepreneur-califications.component';
-import { EntrepreneurColabComponent } from './entrepreneur-colab/entrepreneur-colab.component';
-import { EntrepreneurConfComponent } from './entrepreneur-conf/entrepreneur-conf.component';
-import { PerfilEntrepreneurComponent } from './perfil-entrepreneur/perfil-entrepreneur.component';
+import { EntrepreneurCalificationsComponent } from './components/entrepreneur-califications/entrepreneur-califications.component';
+import { EntrepreneurColabComponent } from './components/entrepreneur-colab/entrepreneur-colab.component';
+import { EntrepreneurConfComponent } from './components/entrepreneur-conf/entrepreneur-conf.component';
+import { PerfilEntrepreneurComponent } from './components/perfil-entrepreneur/perfil-entrepreneur.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegisterComponent },

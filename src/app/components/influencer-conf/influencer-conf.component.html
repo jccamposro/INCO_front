@@ -22,15 +22,20 @@
 
         <nav id="navbar" class="nav-menu navbar">
             <ul>
-                <li><a routerLink="/profile" href="influencerView.html" class="nav-link scrollto active"><i class="bx bx-user"></i> <span>Perfil</span></a>
+                <li><a routerLink="/profile" href="influencerView.html" class="nav-link scrollto active"><i
+                        class="bx bx-user"></i> <span>Perfil</span></a>
                 </li>
-                <li><a routerLink="/colab" href="influencerRepo.html" class="nav-link scrollto"><i class="bx bx-stats"></i> <span>Colaboraciones</span></a>
+                <li><a routerLink="/colab" href="influencerRepo.html" class="nav-link scrollto"><i
+                        class="bx bx-stats"></i> <span>Colaboraciones</span></a>
                 </li>
-                <li><a routerLink="/calification" href="influencerCal.html" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>Calificaciones</span></a>
+                <li><a routerLink="/calification" href="influencerCal.html" class="nav-link scrollto"><i
+                        class="bx bx-file-blank"></i> <span>Calificaciones</span></a>
                 </li>
-                <li><a routerLink="/config" href="influencerConfig.html" class="nav-link scrollto"><i class="bx bx-pencil"></i> <span>Mi cuenta</span></a>
+                <li><a routerLink="/config" href="influencerConfig.html" class="nav-link scrollto"><i
+                        class="bx bx-pencil"></i> <span>Mi cuenta</span></a>
                 </li>
-                <li><a href="login.html" class="nav-link scrollto"><i class="bi bi-power"></i> <span>Cerrar sesión</span></a>
+                <li><a href="login.html" class="nav-link scrollto"><i class="bi bi-power"></i>
+                    <span>Cerrar sesión</span></a>
                 </li>
             </ul>
         </nav><!-- .nav-menu -->
@@ -44,37 +49,43 @@
         <div class="container">
             <h2>Configuration</h2>
             <br>
-            <div class="section-title">
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="text" class="form-control" placeholder="User Name *" value="" 
-                                           formControlName="name_user" required/>
+            <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="updateUser()" class="section-title">
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">User Name *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="User Name *"
+                           formControlName="name_user">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="text" class="form-control" placeholder="Name *" value=""
-                                           formControlName="name" required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Name *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="Name *"
+                           formControlName="name">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="text" class="form-control" placeholder="Last Name *" value=""
-                                           formControlName="last_name" required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Last Name *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="Last Name *"
+                           formControlName="last_name">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="email" class="form-control" placeholder="Your Email *" value=""
-                    formControlName="email" required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Your Email *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="email" class="form-control" placeholder="Your Email *"
+                           formControlName="email">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="text" class="form-control" placeholder="Gender *" value=""
-                                           formControlName="gender" required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Gender *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="Gender *"
+                           formControlName="gender">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="text" minlength="8" maxlength="10" class="form-control"
-                    placeholder="ID *" value="" formControlName="CC" autocomplete="off"
-                    required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">ID *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="ID *"
+                           formControlName="CC" minlength="8" maxlength="10" autocomplete="off">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="password" class="form-control" placeholder="Password *" value=""
-                    formControlName="password" required/>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Password *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="password" class="form-control" placeholder="Password *"
+                           formControlName="password">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
                     <h6>User photo</h6>
                     <input type="file" accept="image/png, image/gif, image/jpeg">
                 </div>
@@ -82,11 +93,13 @@
                     <h6>influencer photo</h6>
                     <input type="file" accept="image/png, image/gif, image/jpeg">
                 </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
                     <small id="emailHelp" class="form-text text-muted ">Update u "about me" </small>
                 </div>
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
+                <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
+                    Update
+                </button>
+            </form>
         </div>
     </section><!-- End About Section -->
 
