@@ -1,6 +1,30 @@
 /* You can add global styles to this file, and also import other style files */
 @import '~ngx-toastr/toastr';
 
+[type="file"] {
+  /* Style the color of the message that says 'No file chosen' */
+    color: #878787;
+  }
+  [type="file"]::-webkit-file-upload-button {
+    background: #3931af;
+    border: 2px solid #3931af;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    font-size: 12px;
+    outline: none;
+    padding: 10px 25px;
+    text-transform: uppercase;
+    transition: all 1s ease;
+  }
+  
+  [type="file"]::-webkit-file-upload-button:hover {
+    background: #fff;
+    border: 2px solid #535353;
+    color: #000;
+  }
+
+
 .register{
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     padding: 2%;
@@ -59,6 +83,17 @@
 .register .register-form{
     padding: 10%;
     margin-top: 10%;
+}
+.btnback{
+  margin-top: 10%;
+  border: none;
+  border-radius: 1.5rem;
+  padding: 2%;
+  background: #f8f9fa;
+  color: #0062cc;
+  font-weight: 600;
+  width: 50%;
+  cursor: pointer;
 }
 .btnRegister{
   float: right;
