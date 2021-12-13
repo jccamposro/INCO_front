@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { LoginServiceService } from '../../services/login-service.service';
-import { FormBuilder, FormControl, FormGroup } from "@angular/forms";
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { GenericResponse } from '../../entities/reponse.interface';
+import { ToastrService } from 'ngx-toastr';
+import { AuthService } from '../../services/auth.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -13,29 +15,29 @@ export class RegisterComponent implements OnInit {
 
     public registerForm: FormGroup;
 
-    constructor(private loginService: LoginServiceService, public fb: FormBuilder, private http: HttpClient) {
-
-        this.registerForm = new FormGroup({
-            name_user: new FormControl(''),
-            name: new FormControl(''),
-            last_name: new FormControl(''),
-            password: new FormControl(''),
-            gender: new FormControl(''),
-            email: new FormControl(''),
-            CC: new FormControl(''),
-            role: new FormControl('')
-        });
+    constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
     }
 
     ngOnInit(): void {
+        this.registerForm = this.formBuilder.group({
+            name_user: [null, [Validators.required]],
+            name: [null, [Validators.required]],
+            last_name: [null, [Validators.required]],
+            password: [null, [Validators.required]],
+            gender: [null, [Validators.required]],
+            email: [null, [Validators.required]],
+            CC: [null, [Validators.required]],
+            role: [null, [Validators.required]],
+        })
     }
 
     submitForm() {
-        this.loginService.storeUser(this.registerForm.value).subscribe((data) => {
-                console.log("Formulario subido");
-            },
-            (error: HttpErrorResponse) => {
-                console.log(error);
+        this.authService.sendRegister(this.registerForm.value)
+            .subscribe((response: GenericResponse) => {
+                this.toastr.success(response.response, 'Register success!');
+                this.router.navigateByUrl('/login')
+            }, error => {
+                this.toastr.error(error.error.response, 'Register error!');
             });
     }
 }

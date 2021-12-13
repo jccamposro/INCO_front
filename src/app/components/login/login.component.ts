@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from "../../services/auth.service";
-import { FormBuilder, FormGroup, Validators } from "@angular/forms";
-import { Router } from "@angular/router";
-import { GenericResponse } from "../../entities/reponse.interface";
-import { ToastrService } from "ngx-toastr";
+import { AuthService } from '../../services/auth.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
     selector: 'app-login',
@@ -26,13 +25,12 @@ export class LoginComponent implements OnInit {
 
     public sendLogin(): void {
         if (this.loginForm?.valid) {
-            this.authService.sendLogin(this.loginForm?.value.name_user, this.loginForm?.value.password)
-                .subscribe((response: GenericResponse) => {
-                    if (response.role === 1) {
-                        this.router.navigateByUrl('/config') // aqui va emp
-                    } else {
-                        this.router.navigateByUrl('/profile')
-                    }
+            this.authService.sendLogin(this.loginForm?.value)
+                .subscribe((response: { token: string }) => {
+                    localStorage.setItem('token', response.token);
+
+
+
                 }, error => {
                     this.toastr.error(error.error.response, 'Login error!');
                 });

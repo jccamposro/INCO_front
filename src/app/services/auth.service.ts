@@ -12,11 +12,15 @@ export class AuthService {
     constructor(private http: HttpClient) {
     }
 
-    public sendLogin(name_user: string, password: string): Observable<GenericResponse> {
-        return this.http.post<GenericResponse>(environment.urlBackend + 'loginUser', { name_user, password })
+    public sendLogin(payload: any): Observable<{  token: string }> {
+        return this.http.post<{  token: string }>(environment.urlBackend + 'user/login', payload)
+    }
+
+    public sendRegister(payload: any): Observable<GenericResponse> {
+        return this.http.post<GenericResponse>(environment.urlBackend + 'user/register', payload)
     }
 
     public sendMail(email: string): Observable<GenericResponse> {
-        return this.http.post<GenericResponse>(environment.urlBackend + 'send', { email })
+        return this.http.post<GenericResponse>(environment.urlBackend + 'user/forgot-password', { email })
     }
 }

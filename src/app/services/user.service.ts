@@ -13,8 +13,8 @@ export class UserService {
     constructor(private http: HttpClient) {
     }
 
-    public get(id: number): Observable<User> {
-        return this.http.get<User>(environment.urlBackend + 'user/' + id)
+    public get(): Observable<{ user: User }> {
+        return this.http.get<{ user: User }>(environment.urlBackend + 'user')
     }
 
     public update(user: User): Observable<GenericResponse> {

@@ -21,18 +21,18 @@ export class InfluencerConfComponent implements OnInit {
     }
 
     ngOnInit(): void {
-        this.userService.get(1)
+        this.userService.get()
             .subscribe(user => {
-                this.user = user;
+                this.user = user.user;
                 this.userForm = this.formBuilder.group({
-                    id: [user.id, [Validators.required]],
-                    name_user: [user.name_user, [Validators.required]],
-                    password: [user.password, [Validators.required]],
-                    name: [user.name, [Validators.required]],
-                    last_name: [user.last_name, [Validators.required]],
-                    email: [user.email, [Validators.required]],
-                    CC: [user.CC, [Validators.required]],
-                    gender: [user.gender, [Validators.required]]
+                    id: [this.user.id, [Validators.required]],
+                    name_user: [this.user.name_user, [Validators.required]],
+                    password: [this.user.password, [Validators.required]],
+                    name: [this.user.name, [Validators.required]],
+                    last_name: [this.user.last_name, [Validators.required]],
+                    email: [this.user.email, [Validators.required]],
+                    CC: [this.user.CC, [Validators.required]],
+                    gender: [this.user.gender, [Validators.required]]
                 })
             })
     }
