@@ -16,6 +16,10 @@ import { InfluencerCalificationsComponent } from './components/influencer-califi
 import { InfluencerConfComponent } from './components/influencer-conf/influencer-conf.component';
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { ToastrModule } from "ngx-toastr";
+import { PerfilEntrepreneurComponent } from './perfil-entrepreneur/perfil-entrepreneur.component';
+import { EntrepreneurColabComponent } from './entrepreneur-colab/entrepreneur-colab.component';
+import { EntrepreneurCalificationsComponent } from './entrepreneur-califications/entrepreneur-califications.component';
+import { EntrepreneurConfComponent } from './entrepreneur-conf/entrepreneur-conf.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +32,11 @@ import { ToastrModule } from "ngx-toastr";
     PerfilInfluencerComponent,
     InfluencerColabComponent,
     InfluencerCalificationsComponent,
-    InfluencerConfComponent
+    InfluencerConfComponent,
+    PerfilEntrepreneurComponent,
+    EntrepreneurColabComponent,
+    EntrepreneurCalificationsComponent,
+    EntrepreneurConfComponent
   ],
   imports: [
     BrowserModule,

@@ -193,6 +193,68 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /*--------------------------------------------------------------
+# entrepreneur Section
+--------------------------------------------------------------*/
+
+#entrepreneur {
+  width: 100%;
+  height: 100vh;
+  background: url("../img/entrepreneur-img.jpg") top center;
+  background-size: cover;
+}
+
+#entrepreneur:before {
+  content: "";
+  background: rgba(16, 20, 27, 0.678);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+#entrepreneur .entrepreneur-container {
+  position: relative;
+  z-index: 2;
+  min-width: 300px;
+}
+#entrepreneur h1 {
+  margin: 0 0 10px 0;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 56px;
+  color: #fff;
+}
+#entrepreneur p {
+  color: #fff;
+  margin-bottom: 50px;
+  font-size: 26px;
+  font-family: "Poppins", sans-serif;
+}
+#entrepreneur p span {
+  color: #fff;
+  padding-bottom: 4px;
+  letter-spacing: 1px;
+  border-bottom: 3px solid #149ddd;
+}
+@media (min-width: 1024px) {
+  #entrepreneur {
+    background-attachment: fixed;
+  }
+}
+@media (max-width: 768px) {
+  #entrepreneur h1 {
+    font-size: 28px;
+    line-height: 36px;
+  }
+  #entrepreneur h2 {
+    font-size: 18px;
+    line-height: 24px;
+    margin-bottom: 30px;
+  }
+}
+
+/*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
 #hero {

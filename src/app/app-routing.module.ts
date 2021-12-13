@@ -9,6 +9,10 @@ import { RegisterCompanyComponent } from './components/register-company/register
 import { RegisterInfluencerComponent } from './components/register-influencer/register-influencer.component';
 import { RegisterComponent } from './components/register/register.component';
 import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { EntrepreneurCalificationsComponent } from './entrepreneur-califications/entrepreneur-califications.component';
+import { EntrepreneurColabComponent } from './entrepreneur-colab/entrepreneur-colab.component';
+import { EntrepreneurConfComponent } from './entrepreneur-conf/entrepreneur-conf.component';
+import { PerfilEntrepreneurComponent } from './perfil-entrepreneur/perfil-entrepreneur.component';
 
 const routes: Routes = [
   { path: 'registro', component: RegisterComponent },
@@ -20,6 +24,10 @@ const routes: Routes = [
   { path: 'colab', component: InfluencerColabComponent },
   { path: 'calification', component: InfluencerCalificationsComponent },
   { path: 'config', component: InfluencerConfComponent },
+  { path: 'profile_entrepreneur', component: PerfilEntrepreneurComponent },
+  { path: 'entrepreneur_colab', component: EntrepreneurColabComponent },
+  { path: 'entrepreneur_califications', component: EntrepreneurCalificationsComponent },
+  { path: 'entrepreneur_config', component: EntrepreneurConfComponent },
 
   { path: '**', pathMatch:'full', redirectTo: 'login'}
 ];
