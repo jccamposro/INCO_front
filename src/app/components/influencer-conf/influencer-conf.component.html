@@ -42,46 +42,53 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container">
-
+            <h2>Configuration</h2>
+            <br>
             <div class="section-title">
-                <h2>Acerca de mí</h2>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"><br>
-                </div>
-                <br>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <input type="text" class="form-control" placeholder="User Name *" value="" 
+                                           formControlName="name_user" required/>
                 </div>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <label for="exampleFormControlFile1">Sube tus fotos</label><br>
+                    <input type="text" class="form-control" placeholder="Name *" value=""
+                                           formControlName="name" required/>
                 </div>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
-                    <small id="emailHelp" class="form-text text-muted ">Actualiza acerca de ti constantemente.</small>
+                    <input type="text" class="form-control" placeholder="Last Name *" value=""
+                                           formControlName="last_name" required/>
                 </div>
-                <button type="submit" class="btn btn-primary">Actualizar</button>
-            </div>
-            <div class="justify-content-center">
-                <img src="https://astelus.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada.jpg"
-                     class="col-lg-12 col-sm-12 col-md-8 py-1">
-                <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6"
-                     class="col-lg-3 col-sm-12 col-md-8 py-1">
-                <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6"
-                     class="col-lg-3 col-sm-12 col-md-8 py-1">
-                <img src="https://us.123rf.com/450wm/kesu87/kesu871907/kesu87190700139/127039478-hermoso-paisaje-con-amanecer-en-la-cascada-kirkjufellsfoss-y-la-monta%C3%B1a-kirkjufell-islandia-.jpg?ver=6"
-                     class="col-lg-3 col-sm-12 col-md-8 py-1">
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <input type="email" class="form-control" placeholder="Your Email *" value=""
+                    formControlName="email" required/>
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <input type="text" class="form-control" placeholder="Gender *" value=""
+                                           formControlName="gender" required/>
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <input type="text" minlength="8" maxlength="10" class="form-control"
+                    placeholder="ID *" value="" formControlName="CC" autocomplete="off"
+                    required/>
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <input type="password" class="form-control" placeholder="Password *" value=""
+                    formControlName="password" required/>
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <h6>User photo</h6>
+                    <input type="file" accept="image/png, image/gif, image/jpeg">
+                </div>
+                <div>
+                    <h6>influencer photo</h6>
+                    <input type="file" accept="image/png, image/gif, image/jpeg">
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch" class="form-group">
+                    <small id="emailHelp" class="form-text text-muted ">Update u "about me" </small>
+                </div>
+                <button type="submit" class="btn btn-primary">Update</button>
             </div>
         </div>
     </section><!-- End About Section -->
-
-    <!-- ======= My Account ======= -->
-    <section id="about" class="about">
-        <div class="container">
-
-            <div class="section-title">
-                <h2>Mis datos personales</h2>
-            </div>
-        </div>
-    </section>
 
 
 </main><!-- End #main -->
