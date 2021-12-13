@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
             this.authService.sendLogin(this.loginForm?.value.name_user, this.loginForm?.value.password)
                 .subscribe((response: GenericResponse) => {
                     if (response.role === 1) {
-                        this.router.navigateByUrl('/colab') // aqui va emp
+                        this.router.navigateByUrl('/config') // aqui va emp
                     } else {
                         this.router.navigateByUrl('/profile')
                     }
