@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { LoadingService } from '../../services/loading.service';
+import { ScriptsLoadService } from 'src/app/scripts-load.service';
 
 @Component({
     selector: 'app-layout',
@@ -18,7 +19,11 @@ export class LayoutComponent implements OnInit {
         private router: Router,
         private userService: UserService,
         private authService: AuthService,
-        private loadingService: LoadingService) {
+        private loadingService: LoadingService,
+        private _scriptsLoad: ScriptsLoadService) {
+
+            _scriptsLoad.load(["userView"])
+
     }
 
     get isEntrepreneur(): boolean {

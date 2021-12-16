@@ -9,6 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class InfluencerProfileComponent implements OnInit {
 
     constructor() {
+
     }
 
     ngOnInit(): void {

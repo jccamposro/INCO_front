@@ -1,6 +1,12 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+//services
+
+import { ScriptsLoadService } from "./scripts-load.service";
+
+//Services end
+
 import { AppComponent } from './app.component';
 import { RegisterComponent } from './components/register/register.component';
 import { AppRoutingModule } from './app-routing.module';
@@ -59,7 +65,8 @@ import { LayoutComponent } from './components/layout/layout.component';
             provide: HTTP_INTERCEPTORS,
             useClass: IncoInterceptor,
             multi: true
-        }
+        },
+        ScriptsLoadService
     ],
     bootstrap: [ AppComponent ]
 })
