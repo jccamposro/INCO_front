@@ -2,7 +2,7 @@
 <i class="bi bi-list mobile-nav-toggle d-xl-none"></i>
 
 <!-- ======= Header ======= -->
-<header id="header">
+<header id="header" *ngIf="user">
     <div class="d-flex flex-column">
 
         <div class="profile">
@@ -25,7 +25,7 @@
             <ul *ngIf="isEntrepreneur">
                 <li>
                     <a routerLink="/entrepreneur-profile" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-user"></i> <span>Profile</span>
+                        <i class="bx bx-user"></i> <span>About us</span>
                     </a>
                 </li>
                 <li>
@@ -40,12 +40,12 @@
                 </li>
                 <li>
                     <a routerLink="/entrepreneur-score" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-file-blank"></i> <span>Score</span>
+                        <i class="bx bx-bar-chart-alt"></i> <span>Score</span>
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/entrepreneur-account" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-stats"></i> <span>Account</span>
+                    <a routerLink="/entrepreneur-settings" class="nav-link scrollto" routerLinkActive="active">
+                        <i class="bx bx-wrench"></i> <span>Settings</span>
                     </a>
                 </li>
                 <li>
@@ -58,7 +58,7 @@
             <ul *ngIf="!isEntrepreneur">
                 <li>
                     <a routerLink="/influencer-profile" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-user"></i> <span>Profile</span>
+                        <i class="bx bx-user"></i> <span>About us</span>
                     </a>
                 </li>
                 <li>
@@ -68,12 +68,12 @@
                 </li>
                 <li>
                     <a routerLink="/influencer-score" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-file-blank"></i> <span>Score</span>
+                        <i class="bx bx-bar-chart-alt"></i> <span>Score</span>
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/influencer-account" class="nav-link scrollto" routerLinkActive="active">
-                        <i class="bx bx-stats"></i> <span>Account</span>
+                    <a routerLink="/influencer-settings" class="nav-link scrollto" routerLinkActive="active">
+                        <i class="bx bx-wrench"></i> <span>Settings</span>
                     </a>
                 </li>
                 <li>

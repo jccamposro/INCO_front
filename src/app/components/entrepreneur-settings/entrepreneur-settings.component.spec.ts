@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { EntrepreneurAccountComponent } from './entrepreneur-account.component';
+import { EntrepreneurSettingsComponent } from './entrepreneur-settings.component';
 
-describe('EntrepreneurAccountComponent', () => {
-    let component: EntrepreneurAccountComponent;
-    let fixture: ComponentFixture<EntrepreneurAccountComponent>;
+describe('EntrepreneurSettingsComponent', () => {
+    let component: EntrepreneurSettingsComponent;
+    let fixture: ComponentFixture<EntrepreneurSettingsComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ EntrepreneurAccountComponent ]
+            declarations: [ EntrepreneurSettingsComponent ]
         })
             .compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(EntrepreneurAccountComponent);
+        fixture = TestBed.createComponent(EntrepreneurSettingsComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

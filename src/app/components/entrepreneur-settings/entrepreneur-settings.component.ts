@@ -7,11 +7,11 @@ import { ToastrService } from 'ngx-toastr';
 import { GenericResponse } from '../../entities/reponse.interface';
 
 @Component({
-    selector: 'app-entrepreneur-account',
-    templateUrl: './entrepreneur-account.component.html',
-    styleUrls: [ './entrepreneur-account.component.css' ]
+    selector: 'app-entrepreneur-settings',
+    templateUrl: './entrepreneur-settings.component.html',
+    styleUrls: [ './entrepreneur-settings.component.css' ]
 })
-export class EntrepreneurAccountComponent implements OnInit {
+export class EntrepreneurSettingsComponent implements OnInit {
 
     public userForm: FormGroup;
 

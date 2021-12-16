@@ -7,13 +7,14 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-    selector: 'app-influencer-account',
-    templateUrl: './influencer-account.component.html',
-    styleUrls: [ './influencer-account.component.css' ]
+    selector: 'app-influencer-settings',
+    templateUrl: './influencer-settings.component.html',
+    styleUrls: [ './influencer-settings.component.css' ]
 })
-export class InfluencerAccountComponent implements OnInit {
+export class InfluencerSettingsComponent implements OnInit {
 
     public userForm: FormGroup;
+    public typePassword: string = 'password';
 
     private user: User;
 
@@ -44,6 +45,14 @@ export class InfluencerAccountComponent implements OnInit {
             }, error => {
                 this.toastr.error(error.error.response, 'Update user error!');
             });
+    }
+
+    public changeTypePassword(): void {
+        if (this.typePassword === 'password') {
+            this.typePassword = 'text';
+        } else {
+            this.typePassword = 'password';
+        }
     }
 
 }

@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { InfluencerAccountComponent } from './influencer-account.component';
+import { InfluencerSettingsComponent } from './influencer-settings.component';
 
-describe('InfluencerAccountComponent', () => {
-    let component: InfluencerAccountComponent;
-    let fixture: ComponentFixture<InfluencerAccountComponent>;
+describe('InfluencerSettingsComponent', () => {
+    let component: InfluencerSettingsComponent;
+    let fixture: ComponentFixture<InfluencerSettingsComponent>;
 
     beforeEach(async () => {
         await TestBed.configureTestingModule({
-            declarations: [ InfluencerAccountComponent ]
+            declarations: [ InfluencerSettingsComponent ]
         })
             .compileComponents();
     });
 
     beforeEach(() => {
-        fixture = TestBed.createComponent(InfluencerAccountComponent);
+        fixture = TestBed.createComponent(InfluencerSettingsComponent);
         component = fixture.componentInstance;
         fixture.detectChanges();
     });

@@ -15,7 +15,7 @@ import {
     InfluencerCollaborationComponent
 } from './components/influencer-collaboration/influencer-collaboration.component';
 import { InfluencerScoreComponent } from './components/influencer-score/influencer-score.component';
-import { InfluencerAccountComponent } from './components/influencer-account/influencer-account.component';
+import { InfluencerSettingsComponent } from './components/influencer-settings/influencer-settings.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/entrepreneur-profile.component';
@@ -23,7 +23,7 @@ import {
     EntrepreneurCollaborationComponent
 } from './components/entrepreneur-collaboration/entrepreneur-collaboration.component';
 import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entrepreneur-score.component';
-import { EntrepreneurAccountComponent } from './components/entrepreneur-account/entrepreneur-account.component';
+import { EntrepreneurSettingsComponent } from './components/entrepreneur-settings/entrepreneur-settings.component';
 import { IncoInterceptor } from './interceptors/inco.interceptor';
 import { LayoutComponent } from './components/layout/layout.component';
 
@@ -38,11 +38,11 @@ import { LayoutComponent } from './components/layout/layout.component';
         InfluencerProfileComponent,
         InfluencerCollaborationComponent,
         InfluencerScoreComponent,
-        InfluencerAccountComponent,
+        InfluencerSettingsComponent,
         EntrepreneurProfileComponent,
         EntrepreneurCollaborationComponent,
         EntrepreneurScoreComponent,
-        EntrepreneurAccountComponent,
+        EntrepreneurSettingsComponent,
         LayoutComponent
     ],
     imports: [

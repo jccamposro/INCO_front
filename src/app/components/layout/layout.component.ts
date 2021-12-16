@@ -26,13 +26,18 @@ export class LayoutComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.loadingService.enable();
         this.userService.get().subscribe((data: { user: User }) => {
+                this.loadingService.disable();
                 this.user = data?.user;
                 if (this.isEntrepreneur) {
                     this.router.navigateByUrl('/entrepreneur-profile');
                 } else {
                     this.router.navigateByUrl('/influencer-profile');
                 }
+            },
+            error => {
+                this.loadingService.disable();
             }
         );
     }

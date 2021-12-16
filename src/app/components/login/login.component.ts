@@ -13,6 +13,7 @@ import { LoadingService } from '../../services/loading.service';
 export class LoginComponent implements OnInit {
 
     public loginForm: FormGroup | undefined;
+    public typePassword: string = 'password';
 
     constructor(
         private router: Router,
@@ -41,6 +42,14 @@ export class LoginComponent implements OnInit {
                     this.loadingService.disable();
                     this.toastr.error(error.error.response, 'Login error!');
                 });
+        }
+    }
+
+    public changeTypePassword(): void {
+        if (this.typePassword === 'password') {
+            this.typePassword = 'text';
+        } else {
+            this.typePassword = 'password';
         }
     }
 

@@ -4,7 +4,7 @@ import { InfluencerScoreComponent } from './components/influencer-score/influenc
 import {
   InfluencerCollaborationComponent
 } from './components/influencer-collaboration/influencer-collaboration.component';
-import { InfluencerAccountComponent } from './components/influencer-account/influencer-account.component';
+import { InfluencerSettingsComponent } from './components/influencer-settings/influencer-settings.component';
 import { LoginComponent } from './components/login/login.component';
 import { InfluencerProfileComponent } from './components/influencer-profile/influencer-profile.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
@@ -15,7 +15,7 @@ import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entr
 import {
   EntrepreneurCollaborationComponent
 } from './components/entrepreneur-collaboration/entrepreneur-collaboration.component';
-import { EntrepreneurAccountComponent } from './components/entrepreneur-account/entrepreneur-account.component';
+import { EntrepreneurSettingsComponent } from './components/entrepreneur-settings/entrepreneur-settings.component';
 import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/entrepreneur-profile.component';
 import { LayoutGuard } from './guards/layout.guard';
 import { LoginGuard } from './guards/login.guard';
@@ -40,8 +40,8 @@ const routes: Routes = [
                 component: InfluencerScoreComponent
             },
             {
-                path: 'influencer-account',
-                component: InfluencerAccountComponent
+                path: 'influencer-settings',
+                component: InfluencerSettingsComponent
             },
             {
                 path: 'entrepreneur-profile',
@@ -56,8 +56,8 @@ const routes: Routes = [
                 component: EntrepreneurScoreComponent
             },
             {
-                path: 'entrepreneur-account',
-                component: EntrepreneurAccountComponent
+                path: 'entrepreneur-settings',
+                component: EntrepreneurSettingsComponent
             }
         ]
     },
