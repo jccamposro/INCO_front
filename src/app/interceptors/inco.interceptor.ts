@@ -23,20 +23,20 @@ export class IncoInterceptor implements HttpInterceptor {
         if (token) {
             request = req.clone({
                 setHeaders: {
-                    authorization: `Bearer ${token}`
+                    authorization: `Bearer ${ token }`
                 }
             });
         }
 
         return next.handle(request).pipe(
-            catchError((err: HttpErrorResponse) => {
+            catchError((error: HttpErrorResponse) => {
 
-                if (err.status === 401) {
+                if (error.status === 401) {
                     localStorage.removeItem('token')
                     this.router.navigateByUrl('/login');
                 }
 
-                return throwError(err);
+                return throwError(error);
 
             })
         );

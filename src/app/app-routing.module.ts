@@ -1,46 +1,101 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { InfluencerScoreComponent } from './components/influencer-score/influencer-score.component';
 import {
-    InfluencerCalificationsComponent
-} from './components/influencer-califications/influencer-califications.component';
-import { InfluencerColabComponent } from './components/influencer-colab/influencer-colab.component';
-import { InfluencerConfComponent } from './components/influencer-conf/influencer-conf.component';
+  InfluencerCollaborationComponent
+} from './components/influencer-collaboration/influencer-collaboration.component';
+import { InfluencerAccountComponent } from './components/influencer-account/influencer-account.component';
 import { LoginComponent } from './components/login/login.component';
-import { PerfilInfluencerComponent } from './components/perfil-influencer/perfil-influencer.component';
+import { InfluencerProfileComponent } from './components/influencer-profile/influencer-profile.component';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterInfluencerComponent } from './components/register-influencer/register-influencer.component';
 import { RegisterComponent } from './components/register/register.component';
-import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entrepreneur-score.component';
 import {
-    EntrepreneurCalificationsComponent
-} from './components/entrepreneur-califications/entrepreneur-califications.component';
-import { EntrepreneurColabComponent } from './components/entrepreneur-colab/entrepreneur-colab.component';
-import { EntrepreneurConfComponent } from './components/entrepreneur-conf/entrepreneur-conf.component';
-import { PerfilEntrepreneurComponent } from './components/perfil-entrepreneur/perfil-entrepreneur.component';
-import { HomeGuard } from './guards/home.guard';
+  EntrepreneurCollaborationComponent
+} from './components/entrepreneur-collaboration/entrepreneur-collaboration.component';
+import { EntrepreneurAccountComponent } from './components/entrepreneur-account/entrepreneur-account.component';
+import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/entrepreneur-profile.component';
+import { LayoutGuard } from './guards/layout.guard';
 import { LoginGuard } from './guards/login.guard';
+import { LayoutComponent } from './components/layout/layout.component';
 
 const routes: Routes = [
-    {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
-    {path: 'registro', component: RegisterComponent, canActivate: [LoginGuard]},
-    {path: 'resetPass', component: ResetPassComponent, canActivate: [LoginGuard]},
-    {path: 'registro_influencer', component: RegisterInfluencerComponent, canActivate: [HomeGuard]},
-    {path: 'registro_company', component: RegisterCompanyComponent, canActivate: [HomeGuard]},
-    {path: 'profile', component: PerfilInfluencerComponent, canActivate: [HomeGuard]},
-    {path: 'colab', component: InfluencerColabComponent, canActivate: [HomeGuard]},
-    {path: 'calification', component: InfluencerCalificationsComponent, canActivate: [HomeGuard]},
-    {path: 'config', component: InfluencerConfComponent, canActivate: [HomeGuard]},
-    {path: 'profile_entrepreneur', component: PerfilEntrepreneurComponent, canActivate: [HomeGuard]},
-    {path: 'entrepreneur_colab', component: EntrepreneurColabComponent, canActivate: [HomeGuard]},
-    {path: 'entrepreneur_califications', component: EntrepreneurCalificationsComponent, canActivate: [HomeGuard]},
-    {path: 'entrepreneur_config', component: EntrepreneurConfComponent, canActivate: [HomeGuard]},
-
-    {path: '**', pathMatch: 'full', redirectTo: 'login'}
+    {
+        path: '',
+        component: LayoutComponent,
+        canActivate: [ LayoutGuard ],
+        children: [
+            {
+                path: 'influencer-profile',
+                component: InfluencerProfileComponent
+            },
+            {
+                path: 'influencer-collaboration',
+                component: InfluencerCollaborationComponent
+            },
+            {
+                path: 'influencer-score',
+                component: InfluencerScoreComponent
+            },
+            {
+                path: 'influencer-account',
+                component: InfluencerAccountComponent
+            },
+            {
+                path: 'entrepreneur-profile',
+                component: EntrepreneurProfileComponent
+            },
+            {
+                path: 'entrepreneur-collaboration',
+                component: EntrepreneurCollaborationComponent
+            },
+            {
+                path: 'entrepreneur-score',
+                component: EntrepreneurScoreComponent
+            },
+            {
+                path: 'entrepreneur-account',
+                component: EntrepreneurAccountComponent
+            }
+        ]
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+        canActivate: [ LoginGuard ]
+    },
+    {
+        path: 'register',
+        component: RegisterComponent,
+        canActivate: [ LoginGuard ]
+    },
+    {
+        path: 'reset-password',
+        component: ResetPasswordComponent,
+        canActivate: [ LoginGuard ]
+    },
+    {
+        path: 'register-influencer',
+        component: RegisterInfluencerComponent,
+        canActivate: [ LoginGuard ]
+    },
+    {
+        path: 'register-company',
+        component: RegisterCompanyComponent,
+        canActivate: [ LoginGuard ]
+    },
+    {
+        path: '**',
+        pathMatch: 'full',
+        redirectTo: ''
+    }
 ];
 
 @NgModule({
-    imports: [RouterModule.forRoot(routes)],
-    exports: [RouterModule]
+    imports: [ RouterModule.forRoot(routes) ],
+    exports: [ RouterModule ]
 })
 export class AppRoutingModule {
 }

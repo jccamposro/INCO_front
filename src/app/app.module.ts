@@ -9,22 +9,23 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RegisterCompanyComponent } from './components/register-company/register-company.component';
 import { RegisterInfluencerComponent } from './components/register-influencer/register-influencer.component';
-import { ResetPassComponent } from './components/reset-pass/reset-pass.component';
-import { PerfilInfluencerComponent } from './components/perfil-influencer/perfil-influencer.component';
-import { InfluencerColabComponent } from './components/influencer-colab/influencer-colab.component';
+import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
+import { InfluencerProfileComponent } from './components/influencer-profile/influencer-profile.component';
 import {
-    InfluencerCalificationsComponent
-} from './components/influencer-califications/influencer-califications.component';
-import { InfluencerConfComponent } from './components/influencer-conf/influencer-conf.component';
+    InfluencerCollaborationComponent
+} from './components/influencer-collaboration/influencer-collaboration.component';
+import { InfluencerScoreComponent } from './components/influencer-score/influencer-score.component';
+import { InfluencerAccountComponent } from './components/influencer-account/influencer-account.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { PerfilEntrepreneurComponent } from './components/perfil-entrepreneur/perfil-entrepreneur.component';
-import { EntrepreneurColabComponent } from './components/entrepreneur-colab/entrepreneur-colab.component';
+import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/entrepreneur-profile.component';
 import {
-    EntrepreneurCalificationsComponent
-} from './components/entrepreneur-califications/entrepreneur-califications.component';
-import { EntrepreneurConfComponent } from './components/entrepreneur-conf/entrepreneur-conf.component';
+    EntrepreneurCollaborationComponent
+} from './components/entrepreneur-collaboration/entrepreneur-collaboration.component';
+import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entrepreneur-score.component';
+import { EntrepreneurAccountComponent } from './components/entrepreneur-account/entrepreneur-account.component';
 import { IncoInterceptor } from './interceptors/inco.interceptor';
+import { LayoutComponent } from './components/layout/layout.component';
 
 @NgModule({
     declarations: [
@@ -33,15 +34,16 @@ import { IncoInterceptor } from './interceptors/inco.interceptor';
         LoginComponent,
         RegisterCompanyComponent,
         RegisterInfluencerComponent,
-        ResetPassComponent,
-        PerfilInfluencerComponent,
-        InfluencerColabComponent,
-        InfluencerCalificationsComponent,
-        InfluencerConfComponent,
-        PerfilEntrepreneurComponent,
-        EntrepreneurColabComponent,
-        EntrepreneurCalificationsComponent,
-        EntrepreneurConfComponent
+        ResetPasswordComponent,
+        InfluencerProfileComponent,
+        InfluencerCollaborationComponent,
+        InfluencerScoreComponent,
+        InfluencerAccountComponent,
+        EntrepreneurProfileComponent,
+        EntrepreneurCollaborationComponent,
+        EntrepreneurScoreComponent,
+        EntrepreneurAccountComponent,
+        LayoutComponent
     ],
     imports: [
         BrowserModule,
@@ -57,8 +59,9 @@ import { IncoInterceptor } from './interceptors/inco.interceptor';
             provide: HTTP_INTERCEPTORS,
             useClass: IncoInterceptor,
             multi: true
-        }],
-    bootstrap: [AppComponent]
+        }
+    ],
+    bootstrap: [ AppComponent ]
 })
 export class AppModule {
 }

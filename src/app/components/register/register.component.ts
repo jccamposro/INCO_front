@@ -9,7 +9,7 @@ import { Router } from '@angular/router';
 @Component({
     selector: 'app-register',
     templateUrl: './register.component.html',
-    styleUrls: ['./register.component.css']
+    styleUrls: [ './register.component.css' ]
 })
 export class RegisterComponent implements OnInit {
 
@@ -20,14 +20,14 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit(): void {
         this.registerForm = this.formBuilder.group({
-            name_user: [null, [Validators.required]],
-            name: [null, [Validators.required]],
-            last_name: [null, [Validators.required]],
-            password: [null, [Validators.required]],
-            gender: [null, [Validators.required]],
-            email: [null, [Validators.required]],
-            CC: [null, [Validators.required]],
-            role: [null, [Validators.required]],
+            name_user: [ null, [ Validators.required ] ],
+            name: [ null, [ Validators.required ] ],
+            last_name: [ null, [ Validators.required ] ],
+            password: [ null, [ Validators.required ] ],
+            gender: [ null, [ Validators.required ] ],
+            email: [ null, [ Validators.required ] ],
+            CC: [ null, [ Validators.required ] ],
+            role: [ null, [ Validators.required ] ],
         })
     }
 

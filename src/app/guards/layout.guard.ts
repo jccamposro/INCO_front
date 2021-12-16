@@ -5,7 +5,7 @@ import { ActivatedRouteSnapshot, CanActivate, Router, RouterStateSnapshot, UrlTr
 @Injectable({
     providedIn: 'root'
 })
-export class LoginGuard implements CanActivate {
+export class LayoutGuard implements CanActivate {
 
     constructor(private router: Router) {
     }
@@ -15,10 +15,10 @@ export class LoginGuard implements CanActivate {
         let token = localStorage.getItem('token');
         let hasToken = token !== null && token !== undefined;
 
-        if (hasToken) {
-            this.router.navigateByUrl('/');
+        if (!hasToken) {
+            this.router.navigateByUrl('/login');
         }
 
-        return !hasToken;
+        return hasToken;
     }
 }
