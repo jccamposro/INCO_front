@@ -27,7 +27,7 @@ export class InfluencerAccountComponent implements OnInit {
                 this.userForm = this.formBuilder.group({
                     id: [ this.user.id, [ Validators.required ] ],
                     name_user: [ this.user.name_user, [ Validators.required ] ],
-                    password: [ this.user.password, [ Validators.required ] ],
+                    password: [ this.user.unencrypted_password, [ Validators.required ] ],
                     name: [ this.user.name, [ Validators.required ] ],
                     last_name: [ this.user.last_name, [ Validators.required ] ],
                     email: [ this.user.email, [ Validators.required ] ],

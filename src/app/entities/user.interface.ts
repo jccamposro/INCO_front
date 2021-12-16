@@ -1,6 +1,7 @@
 export interface User {
     id: number;
     name_user: string;
+    unencrypted_password: string;
     password: string;
     name: string;
     last_name: string;
