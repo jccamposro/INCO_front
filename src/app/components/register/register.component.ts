@@ -4,6 +4,7 @@ import { GenericResponse } from '../../entities/reponse.interface';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
 import { Router } from '@angular/router';
+import { LoadingService } from '../../services/loading.service';
 
 
 @Component({
@@ -15,7 +16,12 @@ export class RegisterComponent implements OnInit {
 
     public registerForm: FormGroup;
 
-    constructor(private authService: AuthService, private formBuilder: FormBuilder, private toastr: ToastrService, private router: Router) {
+    constructor(
+        private router: Router,
+        private toastr: ToastrService,
+        private authService: AuthService,
+        private formBuilder: FormBuilder,
+        private loadingService: LoadingService) {
     }
 
     ngOnInit(): void {
@@ -32,11 +38,14 @@ export class RegisterComponent implements OnInit {
     }
 
     submitForm() {
+        this.loadingService.enable();
         this.authService.sendRegister(this.registerForm.value)
             .subscribe((response: GenericResponse) => {
+                this.loadingService.disable();
                 this.toastr.success(response.response, 'Register success!');
                 this.router.navigateByUrl('/login')
             }, error => {
+                this.loadingService.disable();
                 this.toastr.error(error.error.response, 'Register error!');
             });
     }

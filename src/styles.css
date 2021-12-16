@@ -29,6 +29,7 @@
 .register {
     background: -webkit-linear-gradient(left, #3931af, #00c6ff);
     padding: 2%;
+    min-height: 100vh;
 }
 
 .register-left {
@@ -103,7 +104,7 @@
 }
 
 .btnback {
-    margin-top: 10%;
+    margin: 10% 0;
     border: none;
     border-radius: 1.5rem;
     padding: 2%;
@@ -130,6 +131,12 @@
 .btnRegister:disabled {
     background: gray;
     cursor: not-allowed;
+}
+
+@media (max-width: 576px) {
+    .btnRegister {
+        width: 100%;
+    }
 }
 
 .register .nav-tabs {
