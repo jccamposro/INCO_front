@@ -20,6 +20,7 @@ import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/
 import { LayoutGuard } from './guards/layout.guard';
 import { LoginGuard } from './guards/login.guard';
 import { LayoutComponent } from './components/layout/layout.component';
+import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
 
 const routes: Routes = [
     {
@@ -58,6 +59,10 @@ const routes: Routes = [
             {
                 path: 'entrepreneur-settings',
                 component: EntrepreneurSettingsComponent
+            },
+            {
+                path: 'entrepreneur-create',
+                component: EntrepreneurCreateComponent
             }
         ]
     },
