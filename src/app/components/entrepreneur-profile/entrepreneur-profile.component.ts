@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompanyService } from 'src/app/services/company.service';
 
 @Component({
     selector: 'app-entrepreneur-profile',
@@ -7,11 +8,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntrepreneurProfileComponent implements OnInit {
 
-    constructor() {
+    constructor(public companyService: CompanyService) {
     }
 
-    ngOnInit(): void {
-        console.log('inciio')
+    myData:any;
+    misObjetos: any=[];
+    myObjStr:any;
+    
+
+    ngOnInit(){
+        this.companyService.get().subscribe(data =>{
+            console.warn(data);
+              this.myData=data;
+              this.myObjStr = JSON.stringify(data);
+              this.misObjetos=JSON.parse(this.myObjStr);
+              console.log(this.misObjetos.description);
+        })
     }
 
 }

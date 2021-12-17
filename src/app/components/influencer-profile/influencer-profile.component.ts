@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { InfluencerService } from 'src/app/services/influencer.service';
 
 
 @Component({
@@ -8,12 +9,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class InfluencerProfileComponent implements OnInit {
 
-    constructor() {
+    constructor(public influencerService: InfluencerService) {
 
     }
+    myData:any;
+    misObjetos: any=[];
+    myObjStr:any;
+    
 
-    ngOnInit(): void {
+    ngOnInit(){
+        this.influencerService.get().subscribe(data =>{
+            console.warn(data);
+              this.myData=data;
+              this.myObjStr = JSON.stringify(data);
+              this.misObjetos=JSON.parse(this.myObjStr);
+              console.log(this.misObjetos.description);
+        })
     }
+
 
 
 }
