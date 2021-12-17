@@ -8,6 +8,28 @@
             </h2>
 
             <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="updateUser()" class="section-title">
+
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Category *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <select class="form-control" id="category" formControlName="category">
+                        <option *ngFor="let category of categories"
+                                [selected]="category.value === userForm.controls.category.value.toString()"
+                                [value]="category.value">
+                            {{ category.label }}
+                        </option>
+                    </select>
+                </div>
+
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Description *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <textarea type="text"
+                              class="form-control"
+                              placeholder="Description *"
+                              id="description"
+                              formControlName="description">
+                    </textarea>
+                </div>
+
                 <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">User Name *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
                     <input type="text" class="form-control" placeholder="User Name *"

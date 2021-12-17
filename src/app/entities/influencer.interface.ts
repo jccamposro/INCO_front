@@ -15,3 +15,8 @@ export interface Influencer {
     created_at: string;
     updated_at: string;
 }
+
+export interface InfluencerInformation {
+    description: string;
+    category: number;
+}

@@ -50,6 +50,7 @@ export class RegisterInfluencerComponent implements OnInit {
         this.registerInfluencerForm = this.formBuilder.group({
             description: [ null, [ Validators.required ] ],
             category: [ null, [ Validators.required ] ],
+            facebook: [ null ],
             twitter: [ null ],
             instagram: [ null ],
             youtube: [ null ],
