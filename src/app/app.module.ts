@@ -32,6 +32,7 @@ import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entr
 import { EntrepreneurSettingsComponent } from './components/entrepreneur-settings/entrepreneur-settings.component';
 import { IncoInterceptor } from './interceptors/inco.interceptor';
 import { LayoutComponent } from './components/layout/layout.component';
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 
 @NgModule({
     declarations: [
@@ -57,6 +58,7 @@ import { LayoutComponent } from './components/layout/layout.component';
         FormsModule,
         ReactiveFormsModule,
         HttpClientModule,
+        MatSlideToggleModule,
         BrowserAnimationsModule, // required animations module
         ToastrModule.forRoot()
     ],
