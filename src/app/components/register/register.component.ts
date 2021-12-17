@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { GenericResponse } from '../../entities/reponse.interface';
 import { ToastrService } from 'ngx-toastr';
 import { AuthService } from '../../services/auth.service';
@@ -35,7 +35,14 @@ export class RegisterComponent implements OnInit {
             CC: [ null, [ Validators.required ] ],
             role: [ null, [ Validators.required ] ],
         })
+        
     }
+
+    
+
+    get role(): AbstractControl {
+        return this.registerForm.get('role');
+      }
 
     submitForm() {
         this.loadingService.enable();
@@ -43,7 +50,12 @@ export class RegisterComponent implements OnInit {
             .subscribe((response: GenericResponse) => {
                 this.loadingService.disable();
                 this.toastr.success(response.response, 'Register success!');
-                this.router.navigateByUrl('/login')
+                if(this.registerForm.get('role').value == 1){
+                    this.router.navigateByUrl('/register-company')
+                }else if(this.registerForm.get('role').value == 2){
+                    this.router.navigateByUrl('/register-influencer')
+                }
+                
             }, error => {
                 this.loadingService.disable();
                 this.toastr.error(error.error.response, 'Register error!');
