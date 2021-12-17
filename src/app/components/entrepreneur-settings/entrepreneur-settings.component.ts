@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { User } from '../../entities/user.interface';
-import { UserService } from '../../services/user.service';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GenericResponse } from '../../entities/reponse.interface';
+import { CompanyService } from '../../services/company.service';
+import { Company } from '../../entities/company.interface';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
     selector: 'app-entrepreneur-settings',
@@ -13,37 +14,51 @@ import { GenericResponse } from '../../entities/reponse.interface';
 })
 export class EntrepreneurSettingsComponent implements OnInit {
 
-    public userForm: FormGroup;
+    public companyForm: FormGroup;
+    public categories = [
+        {value: '1', label: 'Esthetic'},
+        {value: '2', label: 'Food'},
+        {value: '3', label: 'Sports'},
+        {value: '4', label: 'Technology'},
+        {value: '5', label: 'Home'}
+    ];
 
-    private user: User;
+    private company: Company;
 
-    constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) {
+    constructor(
+        private companyService: CompanyService,
+        private formBuilder: FormBuilder,
+        private loadingService: LoadingService,
+        private router: Router,
+        private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
-        this.userService.get()
-            .subscribe(user => {
-                this.user = user.user;
-                this.userForm = this.formBuilder.group({
-                    id: [ this.user.id, [ Validators.required ] ],
-                    name_user: [ this.user.name_user, [ Validators.required ] ],
-                    password: [ this.user.password, [ Validators.required ] ],
-                    name: [ this.user.name, [ Validators.required ] ],
-                    last_name: [ this.user.last_name, [ Validators.required ] ],
-                    email: [ this.user.email, [ Validators.required ] ],
-                    CC: [ this.user.CC, [ Validators.required ] ],
-                    gender: [ this.user.gender, [ Validators.required ] ]
+        this.companyService.get()
+            .subscribe(company => {
+                this.company = company.company;
+                this.companyForm = this.formBuilder.group({
+                    name: [ this.company.name, [ Validators.required ] ],
+                    description: [ this.company.description, [ Validators.required ] ],
+                    category: [ this.company.category, [ Validators.required ] ],
+                    nit: [ this.company.nit, [ Validators.required ] ],
+                    address: [ this.company.address, [ Validators.required ] ],
+                    web_domain: [ this.company.web_domain, [ Validators.required ] ],
+                    email: [ this.company.email, [ Validators.required ] ],
+                    contact_number: [ this.company.contact_number, [ Validators.required ] ]
                 })
             })
     }
 
-    public updateUser(): void {
-        this.userService.update({...this.user, ...this.userForm.value})
+    public updateCompany(): void {
+        this.loadingService.enable();
+        this.companyService.update({...this.company, ...this.companyForm.value})
             .subscribe((response: GenericResponse) => {
-                this.toastr.success(response.response, 'Update user success!');
+                this.loadingService.disable();
+                this.toastr.success(response.response, 'Update company success!');
             }, error => {
-                this.toastr.error(error.error.response, 'Update user error!');
+                this.loadingService.disable();
+                this.toastr.error(error.error.response, 'Update company error!');
             });
     }
-
 }

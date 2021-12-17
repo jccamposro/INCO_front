@@ -3,125 +3,64 @@
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
         <div class="container">
-            <h2>Company configuration</h2>
+            <h2>Configuration</h2>
             <br>
-            <form class="section-title">
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group"> Company name *</p>
+            <form *ngIf="companyForm" [formGroup]="companyForm" (ngSubmit)="updateCompany()" class="section-title">
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company Name *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Company Name *" value=""
-                           name="name"/>
+                    <input type="text" class="form-control" placeholder="Company Name *"
+                           formControlName="name">
                 </div>
                 <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Description *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <textarea type="text" class="form-control" placeholder="Description" value=""
-                              name="description"></textarea>
+                    <input type="text" class="form-control" placeholder="Description *"
+                           formControlName="description">
                 </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Cateogry *</p>
-                <select class="col-12 form-control" style="margin-bottom: 20px"
-                        onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
-                    <option value="" disabled selected hidden>category*</option>
-                    <option value="1">one</option>
-                    <option value="2">two</option>
-                    <option value="3">three</option>
-                    <option value="4">four</option>
-                    <option value="5">five</option>
-                </select>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company Email *</p>
+
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Category *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="email" class="form-control" placeholder="Company Email *" value=""
-                           name="email"/>
+                    <select class="form-control" id="category" formControlName="category">
+                        <option *ngFor="let category of categories" [ngValue]="category.value" >
+                            {{ category.label }}
+                        </option>
+                    </select>
+                </div>
+
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Nit *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" minlength="7" maxlength="9" class="form-control"
+                           placeholder="NIT *"
+                           id="nit"
+                           formControlName="nit">
+                </div>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Address *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" class="form-control" placeholder="Address *"
+                           formControlName="address">
                 </div>
                 <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Web domain *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Web Domain " value=""
-                           name="web_domain"/>
+                    <input type="text" class="form-control" placeholder="Web domain *"
+                           formControlName="web_domain">
                 </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Address *</p>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Email *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Address" value=""
-                           name="address"/>
-                    <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company phone*</p>
-                    <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                        <input type="text" minlength="8" maxlength="10" class="form-control"
-                               placeholder="Company phone *" value="" name="contact_number"/>
-                    </div>
-                    <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                        <h6>User photo</h6>
-                        <input type="file" accept="image/png, image/gif, image/jpeg">
-                    </div>
-                    <div>
-                        <h6>Company logo</h6>
-                        <input type="file" accept="image/png, image/gif, image/jpeg">
-                    </div>
-                    <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                        <small id="emailHelp" class="form-text text-muted ">Update u company on "about me" </small>
-                    </div>
-                    <button type="submit" class="btn btn-primary">
+                    <input type="email" class="form-control" placeholder="Email *"
+                           formControlName="email">
+                </div>
+                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Contact number *</p>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <input type="text" minlength="8" maxlength="10" class="form-control"
+                           placeholder="Company phone *"
+                           id="contact_number"
+                           formControlName="contact_number">
+                </div>
+
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                    <button type="submit" class="btn btn-primary" [disabled]="!companyForm.valid">
                         Update
                     </button>
                 </div>
-            </form>
-        </div>
-    </section><!-- End About Section -->
-
-
-</main><!-- End #main -->
-
-
-
-
-
-
-
-
-
-
-<main id="main">
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-        <div class="container">
-            <h2>Configuration</h2>
-            <br>
-            <form *ngIf="userForm" [formGroup]="userForm" (ngSubmit)="updateUser()" class="section-title">
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company Name *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="User Name *"
-                           formControlName="name_user">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Description *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Name *"
-                           formControlName="name">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Category *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Last Name *"
-                           formControlName="last_name">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company Email *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="email" class="form-control" placeholder="Your Email *"
-                           formControlName="email">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Web Domain *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="Gender *"
-                           formControlName="gender">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Address *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="text" class="form-control" placeholder="ID *"
-                           formControlName="CC" minlength="8" maxlength="10" autocomplete="off">
-                </div>
-                <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Company Phone *</p>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                    <input type="password" class="form-control" placeholder="Password *"
-                           formControlName="password">
-                </div>
-                <button type="submit" class="btn btn-primary" [disabled]="!userForm.valid">
-                    Update
-                </button>
             </form>
         </div>
     </section><!-- End About Section -->

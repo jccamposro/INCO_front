@@ -5,6 +5,7 @@ import { User } from '../../entities/user.interface';
 import { GenericResponse } from '../../entities/reponse.interface';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
+import { LoadingService } from '../../services/loading.service';
 
 @Component({
     selector: 'app-influencer-settings',
@@ -18,7 +19,12 @@ export class InfluencerSettingsComponent implements OnInit {
 
     private user: User;
 
-    constructor(private userService: UserService, private formBuilder: FormBuilder, private router: Router, private toastr: ToastrService) {
+    constructor(
+        private userService: UserService,
+        private formBuilder: FormBuilder,
+        private loadingService: LoadingService,
+        private router: Router,
+        private toastr: ToastrService) {
     }
 
     ngOnInit(): void {
@@ -39,10 +45,13 @@ export class InfluencerSettingsComponent implements OnInit {
     }
 
     public updateUser(): void {
+        this.loadingService.enable();
         this.userService.update({...this.user, ...this.userForm.value})
             .subscribe((response: GenericResponse) => {
+                this.loadingService.disable();
                 this.toastr.success(response.response, 'Update user success!');
             }, error => {
+                this.loadingService.disable();
                 this.toastr.error(error.error.response, 'Update user error!');
             });
     }

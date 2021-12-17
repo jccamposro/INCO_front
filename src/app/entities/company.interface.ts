@@ -1,17 +1,10 @@
 export interface Company {
-    id: number;
-    name_user: string;
-    unencrypted_password: string;
-    password: string;
     name: string;
-    last_name: string;
+    description: string;
+    category: string;
+    nit: string;
+    address: string;
+    web_domain: string;
     email: string;
-    email_verified_at: string;
-    CC: string;
-    gender: string;
-    role: number;
-    profile_picture: string;
-    remember_token: string;
-    created_at: string;
-    updated_at: string;
+    contact_number: string;
 }
