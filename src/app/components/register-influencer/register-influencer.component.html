@@ -2,90 +2,126 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 register-left">
-                <img src="assets/img/Logo_blanco.png" alt="INCO logo"/>
+                <img src="assets/img/Logo_blanco.png" alt="INCO logo">
                 <h1>INCO</h1>
-                <a href="/">
-                    <input type="submit" name="" value="Login"/><br/></a>
+                <button class="btnback" (click)="logout()">
+                    Logout
+                </button>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Apply as an Influencer</h3>
-                        <!-- <form [formGroup]="form" (ngSubmit)="submitForm()"> -->
-                        <form>
+                        <form *ngIf="registerInfluencerForm" [formGroup]="registerInfluencerForm"
+                              (ngSubmit)="registerInfluencer()">
                             <div class="row register-form">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <select class="col-12 form-control"
-                                                onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;"
-                                                required>
-                                            <option value="" disabled selected hidden>category*</option>
-                                            <option value="1">Fashion bloggers</option>
-                                            <option value="2">Foodies</option>
-                                            <option value="3">gamers and technology gurus</option>
-                                            <option value="4">Celebrities and artists</option>
-                                            <option value="5">Fitness and healthy life</option>
+                                        <label for="category">Category *</label>
+                                        <select class="form-control" id="category" formControlName="category">
+                                            <option *ngFor="let category of categories" [ngValue]="category.value">
+                                                {{ category.label }}
+                                            </option>
                                         </select>
                                     </div>
+
                                     <div class="form-group">
-                                            <textarea type="text" class="form-control" placeholder="Description"
-                                                    value=""></textarea>
+                                        <label for="description">Description *</label>
+                                        <textarea type="text"
+                                                  class="form-control"
+                                                  placeholder="Description *"
+                                                  id="description"
+                                                  formControlName="description">
+                                        </textarea>
                                     </div>
-                                    <div>
-                                        <h5>influencer photo</h5>
-                                        <input type="file" accept="image/png, image/gif, image/jpeg">
+
+                                    <div class="form-group">
+                                        <label for="influencer_photo">Influencer photo *</label><br>
+                                        <input type="file" id="influencer_photo"
+                                               accept="image/png, image/gif, image/jpeg">
                                     </div>
-                                    <h3 style="margin-bottom: 20px">Social media</h3>
-                                    <div >
-                                        <mat-slide-toggle (click)= "toggleFacebook()" >Facebook</mat-slide-toggle>
-                                        <input *ngIf = '!Facebook' type="text" class="form-control" placeholder="Url Facebook Profile">
+
+
+                                    <label class="mb-3">Social media</label><br>
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleFacebook()">Facebook</mat-slide-toggle>
+                                        <input *ngIf='!Facebook' type="text" class="form-control"
+                                               placeholder="Url Facebook Profile"
+                                               formControlName="facebook">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleTwitter()">Twitter</mat-slide-toggle>
-                                        <input *ngIf = '!Twitter' type="text" class="form-control" placeholder="Url Twitter Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleTwitter()">Twitter</mat-slide-toggle>
+                                        <input *ngIf='!Twitter' type="text" class="form-control"
+                                               placeholder="Url Twitter Profile"
+                                               formControlName="twitter">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleInstagram()">Instagram</mat-slide-toggle>
-                                        <input *ngIf = '!Instagram' type="text" class="form-control" placeholder="Url Instagram Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleInstagram()">Instagram</mat-slide-toggle>
+                                        <input *ngIf='!Instagram' type="text" class="form-control"
+                                               placeholder="Url Instagram Profile"
+                                               formControlName="instagram">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleYoutube()">Youtube</mat-slide-toggle>
-                                        <input *ngIf = '!Youtube' type="text" class="form-control" placeholder="Url Youtube Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleYoutube()">Youtube</mat-slide-toggle>
+                                        <input *ngIf='!Youtube' type="text" class="form-control"
+                                               placeholder="Url Youtube Profile"
+                                               formControlName="youtube">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleSnapchat()">Snapchat</mat-slide-toggle>
-                                        <input *ngIf = '!Snapchat' type="text" class="form-control" placeholder="Url Snapchat Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleSnapchat()">Snapchat</mat-slide-toggle>
+                                        <input *ngIf='!Snapchat' type="text" class="form-control"
+                                               placeholder="Url Snapchat Profile"
+                                               formControlName="snapchat">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleTikTok()">Tik Tok</mat-slide-toggle>
-                                        <input *ngIf = '!TikTok' type="text" class="form-control" placeholder="Url Tik Tok Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleTikTok()">Tik Tok</mat-slide-toggle>
+                                        <input *ngIf='!TikTok' type="text" class="form-control"
+                                               placeholder="Url Tik Tok Profile"
+                                               formControlName="tik_tok">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleKwai()">Kwai</mat-slide-toggle>
-                                        <input *ngIf = '!Kwai' type="text" class="form-control" placeholder="Url Kwai Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleKwai()">Kwai</mat-slide-toggle>
+                                        <input *ngIf='!Kwai' type="text" class="form-control"
+                                               placeholder="Url Kwai Profile"
+                                               formControlName="kawai">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "togglePinterest()">Pinterest</mat-slide-toggle>
-                                        <input *ngIf = '!Pinterest' type="text" class="form-control" placeholder="Url Pinterest Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="togglePinterest()">Pinterest</mat-slide-toggle>
+                                        <input *ngIf='!Pinterest' type="text" class="form-control"
+                                               placeholder="Url Pinterest Profile"
+                                               formControlName="pinterest">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleTwitch()">Twitch</mat-slide-toggle>
-                                        <input *ngIf = '!Twitch' type="text" class="form-control" placeholder="Url Twitch Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleTwitch()">Twitch</mat-slide-toggle>
+                                        <input *ngIf='!Twitch' type="text" class="form-control"
+                                               placeholder="Url Twitch Profile"
+                                               formControlName="twitch">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleReddit()" >Reddit</mat-slide-toggle>
-                                        <input *ngIf = '!Reddit' type="text" class="form-control" placeholder="Url Reddit Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleReddit()">Reddit</mat-slide-toggle>
+                                        <input *ngIf='!Reddit' type="text" class="form-control"
+                                               placeholder="Url Reddit Profile"
+                                               formControlName="reddit">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleWeibo()">Weibo</mat-slide-toggle>
-                                        <input *ngIf = '!Weibo' type="text" class="form-control" placeholder="Url Weibo Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleWeibo()">Weibo</mat-slide-toggle>
+                                        <input *ngIf='!Weibo' type="text" class="form-control"
+                                               placeholder="Url Weibo Profile"
+                                               formControlName="weibo">
                                     </div>
-                                    <div>
-                                        <mat-slide-toggle (click)= "toggleBiliBili()">Bilibili</mat-slide-toggle>
-                                        <input *ngIf = '!BiliBili' type="text" class="form-control" placeholder="Url Bilibili Profile">
+                                    <div class="mb-2">
+                                        <mat-slide-toggle (click)="toggleBiliBili()">Bilibili</mat-slide-toggle>
+                                        <input *ngIf='!BiliBili' type="text" class="form-control"
+                                               placeholder="Url Bilibili Profile"
+                                               formControlName="bilibili">
                                     </div>
+
+                                    <button type="submit"
+                                            class="btnRegister"
+                                            [disabled]="!registerInfluencerForm.valid">
+                                        Register influencer
+                                    </button>
                                 </div>
-                                <input type="submit" class="btnRegister" value="Register"/>
                             </div>
                         </form>
                     </div>

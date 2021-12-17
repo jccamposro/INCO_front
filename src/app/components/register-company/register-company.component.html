@@ -2,62 +2,97 @@
     <div class="container">
         <div class="row">
             <div class="col-md-3 register-left">
-                <img src="assets/img/Logo_blanco.png" alt="INCO logo"/>
+                <img src="assets/img/Logo_blanco.png" alt="INCO logo">
                 <h1>INCO</h1>
-                <a href="/">
-                    <input type="submit" name="" value="Login"/><br/></a>
+                <button class="btnback" (click)="logout()">
+                    Logout
+                </button>
             </div>
             <div class="col-md-9 register-right">
                 <div class="tab-content" id="myTabContent">
                     <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
                         <h3 class="register-heading">Apply as an Enterprise</h3>
-                        <form action="" method="POST">
+                        <form *ngIf="registerCompanyForm" [formGroup]="registerCompanyForm" (ngSubmit)="registerCompany()">
                             <div class="row register-form">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Company Name *" value=""
-                                               name="name" required/>
+                                        <label for="name">Company Name *</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               placeholder="Company Name *"
+                                               id="name"
+                                               formControlName="name">
                                     </div>
                                     <div class="form-group">
+                                        <label for="name">NIT *</label>
                                         <input type="text" minlength="7" maxlength="9" class="form-control"
-                                               placeholder="NIT *" value="" name="nit" required/>
+                                               placeholder="NIT *"
+                                               id="nit"
+                                               formControlName="nit">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Web Domain " value=""
-                                               name="web_domain"/>
+                                        <label for="web_domain">Web Domain *</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               placeholder="Web Domain *"
+                                               id="web_domain"
+                                               formControlName="web_domain">
                                     </div>
                                     <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Address" value=""
-                                               name="address"/>
+                                        <label for="address">Address *</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               placeholder="Address *"
+                                               id="address"
+                                               formControlName="address">
                                     </div>
                                     <div class="form-group">
-                                            <textarea type="text" class="form-control" placeholder="Description" value=""
-                                                      name="description"></textarea>
+                                        <label for="description">Description *</label>
+                                        <textarea type="text"
+                                                  class="form-control"
+                                                  placeholder="Description *"
+                                                  id="description"
+                                                  formControlName="description">
+                                        </textarea>
                                     </div>
                                 </div>
                                 <div class="col-md-6">
-                                    <select class="col-12 form-control" style="margin-bottom: 20px"
-                                            onchange="document.getElementById('displayValue').value=this.options[this.selectedIndex].text; document.getElementById('idValue').value=this.options[this.selectedIndex].value;">
-                                        <option value="" disabled selected hidden>category*</option>
-                                        <option value="1">one</option>
-                                        <option value="2">two</option>
-                                        <option value="3">three</option>
-                                        <option value="4">four</option>
-                                        <option value="5">five</option>
-                                    </select>
                                     <div class="form-group">
-                                        <input type="email" class="form-control" placeholder="Company Email *" value=""
-                                               name="email" required/>
+                                        <label for="category">Category *</label>
+                                        <select class="form-control" id="category" formControlName="category">
+                                            <option *ngFor="let category of categories" [ngValue]="category.value">
+                                                {{ category.label }}
+                                            </option>
+                                        </select>
                                     </div>
+
                                     <div class="form-group">
+                                        <label for="email">Company Email *</label>
+                                        <input type="text"
+                                               class="form-control"
+                                               placeholder="Company Email *"
+                                               id="email"
+                                               formControlName="email">
+                                    </div>
+
+                                    <div class="form-group">
+                                        <label for="contact_number">Company phone *</label>
                                         <input type="text" minlength="8" maxlength="10" class="form-control"
-                                               placeholder="Company phone *" value="" name="contact_number" required/>
+                                               placeholder="Company phone *"
+                                               id="contact_number"
+                                               formControlName="contact_number">
                                     </div>
-                                    <div>
-                                        <h5>Companie photo</h5>
-                                        <input type="file" accept="image/png, image/gif, image/jpeg">
+
+                                    <div class="form-group">
+                                        <label for="company_photo">Companie photo *</label>
+                                        <input type="file" id="company_photo" accept="image/png, image/gif, image/jpeg">
                                     </div>
-                                    <input type="submit" class="btnRegister" value="Register"/>
+
+                                    <button type="submit"
+                                            class="btnRegister"
+                                            [disabled]="!registerCompanyForm.valid">
+                                        Register company
+                                    </button>
                                 </div>
                             </div>
                         </form>

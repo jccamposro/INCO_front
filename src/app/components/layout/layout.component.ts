@@ -5,6 +5,9 @@ import { UserService } from '../../services/user.service';
 import { AuthService } from '../../services/auth.service';
 import { LoadingService } from '../../services/loading.service';
 import { ScriptsLoadService } from 'src/app/scripts-load.service';
+import { CompanyService } from '../../services/company.service';
+import { InfluencerService } from '../../services/influencer.service';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
     selector: 'app-layout',
@@ -19,10 +22,13 @@ export class LayoutComponent implements OnInit {
         private router: Router,
         private userService: UserService,
         private authService: AuthService,
+        private globalService: GlobalService,
+        private companyService: CompanyService,
         private loadingService: LoadingService,
+        private influencerService: InfluencerService,
         private _scriptsLoad: ScriptsLoadService) {
 
-            _scriptsLoad.load(["userView"])
+        _scriptsLoad.load([ 'userView' ])
 
     }
 
@@ -33,12 +39,29 @@ export class LayoutComponent implements OnInit {
     ngOnInit(): void {
         this.loadingService.enable();
         this.userService.get().subscribe((data: { user: User }) => {
-                this.loadingService.disable();
                 this.user = data?.user;
                 if (this.isEntrepreneur) {
-                    this.router.navigateByUrl('/entrepreneur-profile');
+                    this.companyService.get()
+                        .subscribe(
+                            data => {
+                                this.loadingService.disable();
+                                this.router.navigateByUrl('/entrepreneur-profile')
+                            },
+                            error => {
+                                this.loadingService.disable();
+                                this.router.navigateByUrl('/register-company')
+                            })
                 } else {
-                    this.router.navigateByUrl('/influencer-profile');
+                    this.influencerService.get()
+                        .subscribe(
+                            data => {
+                                this.loadingService.disable();
+                                this.router.navigateByUrl('/influencer-profile');
+                            },
+                            error => {
+                                this.loadingService.disable();
+                                this.router.navigateByUrl('/register-influencer')
+                            })
                 }
             },
             error => {
@@ -48,16 +71,7 @@ export class LayoutComponent implements OnInit {
     }
 
     public logout(): void {
-        this.loadingService.enable();
-        this.authService.logout().subscribe(
-            success => {
-                this.loadingService.disable();
-                localStorage.removeItem('token');
-                this.router.navigateByUrl('/login');
-            }, error => {
-                this.loadingService.disable();
-            }
-        )
+        this.globalService.logout();
     }
 
 }

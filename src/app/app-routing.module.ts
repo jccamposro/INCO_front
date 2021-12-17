@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { InfluencerScoreComponent } from './components/influencer-score/influencer-score.component';
 import {
-  InfluencerCollaborationComponent
+    InfluencerCollaborationComponent
 } from './components/influencer-collaboration/influencer-collaboration.component';
 import { InfluencerSettingsComponent } from './components/influencer-settings/influencer-settings.component';
 import { LoginComponent } from './components/login/login.component';
@@ -13,7 +13,7 @@ import { RegisterComponent } from './components/register/register.component';
 import { ResetPasswordComponent } from './components/reset-password/reset-password.component';
 import { EntrepreneurScoreComponent } from './components/entrepreneur-score/entrepreneur-score.component';
 import {
-  EntrepreneurCollaborationComponent
+    EntrepreneurCollaborationComponent
 } from './components/entrepreneur-collaboration/entrepreneur-collaboration.component';
 import { EntrepreneurSettingsComponent } from './components/entrepreneur-settings/entrepreneur-settings.component';
 import { EntrepreneurProfileComponent } from './components/entrepreneur-profile/entrepreneur-profile.component';
@@ -84,12 +84,12 @@ const routes: Routes = [
     {
         path: 'register-influencer',
         component: RegisterInfluencerComponent,
-        canActivate: [ LoginGuard ]
+        canActivate: [ LayoutGuard ]
     },
     {
         path: 'register-company',
         component: RegisterCompanyComponent,
-        canActivate: [ LoginGuard ]
+        canActivate: [ LayoutGuard ]
     },
     {
         path: '**',
