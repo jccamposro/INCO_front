@@ -34,8 +34,10 @@ export class EntrepreneurSettingsComponent implements OnInit {
     }
 
     ngOnInit(): void {
+        this.loadingService.enable();
         this.companyService.get()
             .subscribe(company => {
+                this.loadingService.disable()
                 this.company = company.company;
                 this.companyForm = this.formBuilder.group({
                     name: [ this.company.name, [ Validators.required ] ],
@@ -47,7 +49,7 @@ export class EntrepreneurSettingsComponent implements OnInit {
                     email: [ this.company.email, [ Validators.required ] ],
                     contact_number: [ this.company.contact_number, [ Validators.required ] ]
                 })
-            })
+            }, error => this.loadingService.disable())
     }
 
     public updateCompany(): void {

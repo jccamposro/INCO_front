@@ -20,7 +20,9 @@
                 <p class="col-lg-12 d-md-flex align-items-md-stretch form-group">Category *</p>
                 <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
                     <select class="form-control" id="category" formControlName="category">
-                        <option *ngFor="let category of categories" [ngValue]="category.value" >
+                        <option *ngFor="let category of categories"
+                                [selected]="category.value === companyForm.controls.category.value.toString()"
+                                [value]="category.value">
                             {{ category.label }}
                         </option>
                     </select>

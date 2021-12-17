@@ -17,7 +17,11 @@ export class UserService {
         return this.http.get<{ user: User }>(environment.urlBackend + 'user')
     }
 
+    public getInformation(): Observable<{ user: User }> {
+        return this.http.get<{ user: User }>(environment.urlBackend + 'influencer/information')
+    }
+
     public update(user: User): Observable<GenericResponse> {
-        return this.http.post<GenericResponse>(environment.urlBackend + 'user/update', user)
+        return this.http.post<GenericResponse>(environment.urlBackend + 'influencer/update', user)
     }
 }
