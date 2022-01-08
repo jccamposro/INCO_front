@@ -21,6 +21,7 @@ import { LayoutGuard } from './guards/layout.guard';
 import { LoginGuard } from './guards/login.guard';
 import { LayoutComponent } from './components/layout/layout.component';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 const routes: Routes = [
     {
@@ -63,6 +64,10 @@ const routes: Routes = [
             {
                 path: 'entrepreneur-create',
                 component: EntrepreneurCreateComponent
+            },
+            {
+                path: 'main-page',
+                component: MainPageComponent
             }
         ]
     },

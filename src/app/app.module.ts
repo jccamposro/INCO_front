@@ -34,6 +34,7 @@ import { IncoInterceptor } from './interceptors/inco.interceptor';
 import { LayoutComponent } from './components/layout/layout.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
+import { MainPageComponent } from './components/main-page/main-page.component';
 
 @NgModule({
     declarations: [
@@ -52,7 +53,8 @@ import { EntrepreneurCreateComponent } from './components/entrepreneur-create/en
         EntrepreneurScoreComponent,
         EntrepreneurSettingsComponent,
         LayoutComponent,
-        EntrepreneurCreateComponent
+        EntrepreneurCreateComponent,
+        MainPageComponent
     ],
     imports: [
         BrowserModule,
