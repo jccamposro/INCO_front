@@ -1,6 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { MatCardModule } from '@angular/material/card';
+import { MatButtonModule} from '@angular/material/button';
+import { MatMenuModule } from '@angular/material/menu';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatIconModule } from '@angular/material/icon';
 //services
 
 import { ScriptsLoadService } from "./scripts-load.service";
@@ -36,6 +40,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 
+
 @NgModule({
     declarations: [
         AppComponent,
@@ -64,7 +69,12 @@ import { MainPageComponent } from './components/main-page/main-page.component';
         HttpClientModule,
         MatSlideToggleModule,
         BrowserAnimationsModule, // required animations module
-        ToastrModule.forRoot()
+        ToastrModule.forRoot(),
+        MatButtonModule,
+        MatMenuModule,
+        MatToolbarModule,
+        MatIconModule,
+        MatCardModule
     ],
     providers: [
         {

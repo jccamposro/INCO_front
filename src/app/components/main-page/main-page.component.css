@@ -1,8 +1,11 @@
+
+/*Search bar*/
 * {
 	border: 0;
 	box-sizing: border-box;
 	margin: 0;
 	padding: 0;
+	
 }
 :root {
 	font-size: calc(16px + (24 - 16)*(100vw - 320px)/(1920 - 320));
@@ -15,7 +18,7 @@ body, input {
 	color: #ffffff;
 }
 body, .search-bar {
-	display: flex;
+	display: inline-flex
 }
 body {
 	background: #ffffff;
@@ -25,7 +28,7 @@ body {
 .search-btn, 
 .search-btn:before, 
 .search-btn:after {
-	transition: all 0.25s ease-out;
+	transition: all 0.3s ease-out;
 }
 .search-bar input,
 .search-btn {
@@ -46,9 +49,8 @@ body {
 	outline: transparent;
 }
 .search-bar {
-	margin: auto;
 	padding: 1.5em;
-	justify-content: center;
+	justify-content: left;
 	max-width: 30em;
 }
 .search-bar input {
@@ -154,3 +156,32 @@ body {
 		background: #000000;
 	}
 }
+
+
+/* Clase logo */
+
+.logo {
+
+	width: 20%;
+	height: 20%;
+	display: inline;
+}
+
+/* card */ 
+
+.card-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.example-card {
+	max-width: 475px ;
+	margin: 3%;
+
+  }
+  
+.example-header-image {
+	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+	background-size: cover;
+  }
