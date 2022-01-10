@@ -39,6 +39,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
+import { ChatComponent } from './components/chat/chat.component';
 
 
 @NgModule({
@@ -59,7 +60,8 @@ import { MainPageComponent } from './components/main-page/main-page.component';
         EntrepreneurSettingsComponent,
         LayoutComponent,
         EntrepreneurCreateComponent,
-        MainPageComponent
+        MainPageComponent,
+        ChatComponent
     ],
     imports: [
         BrowserModule,

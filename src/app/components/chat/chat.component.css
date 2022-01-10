@@ -1,0 +1,93 @@
+.cardContainer{
+    width: 300px;
+    height: 450px;
+    position: fixed;
+    right: 0.5rem;
+    bottom: 0.5rem;
+}
+
+.card-header{
+  background: -webkit-linear-gradient(right, #3931af, #00c6ff);
+  color: #FFFFFF;
+  font-weight: 700;
+}
+.send-container{
+  background: -webkit-linear-gradient(right, #3931af, #00c6ff);
+}
+
+.send-container:hover{
+  cursor: pointer;
+}
+
+.send-img{
+  width: 20px;
+  height: 15px;
+}
+
+.send-img:active{
+  transform: scale(0.9);
+}
+
+.card-body{
+  padding: 0.5rem;
+  background: url("src/assets/img/chat_back.png");
+}
+
+.send{
+  display: block;
+  float: right;
+  background-color:#3931af ;
+  color: #FFFFFF;
+  min-width: 50.01% ;
+  border-radius: 10px;
+  text-align: left;
+  max-width: 275px;
+}
+
+.receibe{
+  display: block;
+  float: left;
+  background-color: #00c6ff;
+  color: #FFFFFF;
+  min-width: 50.01% ;
+  border-radius: 10px;
+  text-align: left;
+  max-width: 275px;
+}
+
+.messageContainer{
+  overflow-y: scroll;
+  overflow-x: hidden;
+  padding: 0.3rem;
+}
+
+.messageContainer::-webkit-scrollbar{
+  display: none;
+}
+
+.chatIconCont{
+  position: fixed;
+  right: 0.5rem;
+  bottom: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 60px;
+  height: 60px;
+  cursor: pointer;
+  background-color:#00C6FFFF ;
+  border-radius: 100%;
+  box-shadow: 0 0 10px 2px gray ;
+}
+
+.chatIcon{
+  width: 40px;
+  height: 40px;
+}
+
+.closeI{
+  position: absolute;
+  right: 0.5rem;
+  top: 0.5rem;
+  cursor: pointer;
+}
