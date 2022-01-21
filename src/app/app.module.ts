@@ -40,6 +40,7 @@ import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ChatComponent } from './components/chat/chat.component';
+import { ContactsComponent } from './components/contacts/contacts.component';
 
 
 @NgModule({
@@ -61,7 +62,8 @@ import { ChatComponent } from './components/chat/chat.component';
         LayoutComponent,
         EntrepreneurCreateComponent,
         MainPageComponent,
-        ChatComponent
+        ChatComponent,
+        ContactsComponent
     ],
     imports: [
         BrowserModule,
