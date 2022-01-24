@@ -6,6 +6,7 @@ import { GenericResponse } from '../../entities/reponse.interface';
 import { CompanyService } from '../../services/company.service';
 import { Company } from '../../entities/company.interface';
 import { LoadingService } from '../../services/loading.service';
+import { InfluencerService } from 'src/app/services/influencer.service';
 
 @Component({
     selector: 'app-entrepreneur-settings',
@@ -29,6 +30,7 @@ export class EntrepreneurSettingsComponent implements OnInit {
         private companyService: CompanyService,
         private formBuilder: FormBuilder,
         private loadingService: LoadingService,
+        private influencerService: InfluencerService,
         private router: Router,
         private toastr: ToastrService) {
     }
@@ -63,4 +65,22 @@ export class EntrepreneurSettingsComponent implements OnInit {
                 this.toastr.error(error.error.response, 'Update company error!');
             });
     }
+    files:any;
+       uploadImage(event:any){
+        this.files = event.target.files[0];
+        console.log(this.files)
+       }
+       enviarImagen1(){
+        const formData = new FormData();
+        formData.append("photos", this.files, this.files.name);
+        console.log(this.files.name);
+        this.influencerService.onUpload(formData).subscribe((response: GenericResponse) => {
+            this.loadingService.disable();
+            this.toastr.success(response.response, 'Image user success!');
+        }, (error: any) => {
+            this.loadingService.disable();
+            this.toastr.error(error.error.response, 'Image user error!');
+        });
+        
+       }
 }

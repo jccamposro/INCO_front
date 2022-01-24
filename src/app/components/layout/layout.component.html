@@ -6,7 +6,7 @@
     <div class="d-flex flex-column">
 
         <div class="profile">
-            <img src="../../../assets/img/profile-img.jpg" alt="" class="img-fluid rounded-circle">
+            <img src="http://localhost:8000/storage/influencer_profile/{{user?.profile_picture}}" alt="" class="img-fluid rounded-circle">
             <h1 class="text-light"><a href="../../../index.html">{{ user?.name_user }}</a></h1>
             <div class="social-links mt-3 text-center">
 
@@ -52,6 +52,10 @@
                     </a>
                 </li>
                 <li>
+                    <a (click)="logout()" class="nav-link scrollto">
+                        <i class="bi bi-power"></i> <span>Logout</span>
+                    </a>
+                </li><li>
                     <a (click)="logout()" class="nav-link scrollto">
                         <i class="bi bi-power"></i> <span>Logout</span>
                     </a>

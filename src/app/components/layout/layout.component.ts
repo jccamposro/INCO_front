@@ -17,7 +17,7 @@ import { GlobalService } from '../../services/global.service';
 export class LayoutComponent implements OnInit {
 
     public user: User;
-
+    
     constructor(
         private router: Router,
         private userService: UserService,
