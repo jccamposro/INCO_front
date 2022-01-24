@@ -23,6 +23,7 @@ import { LayoutComponent } from './components/layout/layout.component';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
 
 const routes: Routes = [
     {
@@ -73,6 +74,10 @@ const routes: Routes = [
             {
                 path: 'contacts',
                 component: ContactsComponent
+            },
+            {
+                path: 'show-profile',
+                component: ShowProfileComponent
             }
         ]
     },

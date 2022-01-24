@@ -1,5 +1,13 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../../entities/user.interface';
+import { Router } from '@angular/router';
+import { UserService } from '../../services/user.service';
+import { AuthService } from '../../services/auth.service';
+import { LoadingService } from '../../services/loading.service';
 import { ScriptsLoadService } from 'src/app/scripts-load.service';
+import { CompanyService } from '../../services/company.service';
+import { InfluencerService } from '../../services/influencer.service';
+import { GlobalService } from '../../services/global.service';
 
 @Component({
     selector: 'app-entrepreneur-collaboration',
@@ -8,8 +16,18 @@ import { ScriptsLoadService } from 'src/app/scripts-load.service';
 })
 export class EntrepreneurCollaborationComponent implements OnInit {
 
-    constructor(private _ScriptLoad: ScriptsLoadService) {
-        _ScriptLoad.load(["userView"])
+    constructor(
+        private router: Router,
+        private userService: UserService,
+        private authService: AuthService,
+        private globalService: GlobalService,
+        private companyService: CompanyService,
+        private loadingService: LoadingService,
+        private influencerService: InfluencerService,
+        private _scriptsLoad: ScriptsLoadService) {
+
+        _scriptsLoad.load([ 'userView' ])
+
     }
 
     ngOnInit(): void {

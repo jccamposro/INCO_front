@@ -41,6 +41,7 @@ import { EntrepreneurCreateComponent } from './components/entrepreneur-create/en
 import { MainPageComponent } from './components/main-page/main-page.component';
 import { ChatComponent } from './components/chat/chat.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
+import { ShowProfileComponent } from './show-profile/show-profile.component';
 
 
 @NgModule({
@@ -63,7 +64,8 @@ import { ContactsComponent } from './components/contacts/contacts.component';
         EntrepreneurCreateComponent,
         MainPageComponent,
         ChatComponent,
-        ContactsComponent
+        ContactsComponent,
+        ShowProfileComponent
     ],
     imports: [
         BrowserModule,
