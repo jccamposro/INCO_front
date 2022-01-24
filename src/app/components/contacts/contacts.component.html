@@ -1,97 +1,51 @@
-
 <main id="main">
 
     <!-- ======= About Section ======= -->
     <section id="about" class="about">
-      <div class="container">
-        <h1>Contact realised</h1>
-        <hr class="hr-3">
-            <div class="row">
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogdo</h3>
-                </div>
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>   
-            </div>
-
-        <br>
-        <h1>Contact request</h1>
-        <hr class="hr-3">
-            <div class="row">
-                <div class="oval req">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                    <div>
-                        <i class="bi bi-check-circle" id="confirm" onclick=""></i>
+        <div class="container">
+            <div *ngIf="contactRealised?.length > 0">
+                <h1>Contact realised</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval" *ngFor="let contact of contactRealised">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
                     </div>
-                    <div>
-                        <i class="bi bi-x-circle " id="reject"></i>
-                    </div>
-                </div>
-                <div class="oval req">
-                    <img src="https://www.biografiasyvidas.com/biografia/c/fotos/colon_willie.jpg" alt="Avatar" class="avatar">
-                    <h3>El gran varón</h3>
-                    <div>
-                        <i class="bi bi-check-circle" id="confirm" onclick=""></i>
-                    </div>
-                    <div>
-                        <i class="bi bi-x-circle " id="reject"></i>
-                    </div>
-                </div>
-                <div class="oval req">
-                    <img src="https://i.pinimg.com/474x/e7/1b/d3/e71bd3e52e16718a0e7ec2bc57346033.jpg" alt="Avatar" class="avatar">
-                    <h3>Kyaru</h3>
-                    <div>
-                        <i class="bi bi-check-circle" id="confirm" onclick=""></i>
-                    </div>
-                    <div>
-                        <i class="bi bi-x-circle " id="reject"></i>
-                    </div>
-                </div>
-
-
-            </div>
-        <br>
-        <h1>Waiting response</h1>
-        <hr class="hr-3">
-            <div class="row">
-                <div class="oval waiting">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval waiting">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval waiting">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
-                </div>
-                <div class="oval waiting">
-                    <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
-                    <h3>Dogo</h3>
                 </div>
             </div>
+            <br>
 
-      </div>
+            <div *ngIf="contactRequest?.length > 0">
+                <h1>Contact request</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval req" *ngFor="let contact of contactRequest">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
+                        <div>
+                            <i class="bi bi-check-circle" id="confirm" (click)="confirmMatch(contact)"></i>
+                        </div>
+                        <div>
+                            <i class="bi bi-x-circle " id="reject" (click)="rejectMatch(contact)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div *ngIf="contactWaiting?.length > 0">
+                <h1>Waiting response</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval waiting" *ngFor="let contact of contactWaiting">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
-  </main>
+</main>
