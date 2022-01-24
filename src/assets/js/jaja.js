@@ -1,0 +1,3 @@
+function jaja(){
+    alert("funciona");
+}

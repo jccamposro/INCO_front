@@ -15,3 +15,8 @@ export interface User {
     created_at: string;
     updated_at: string;
 }
+
+export interface UserMatch {
+    user_id: number;
+    name_user: string;
+}

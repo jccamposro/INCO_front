@@ -1,0 +1,51 @@
+<main id="main">
+
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+        <div class="container">
+            <div *ngIf="contactRealised?.length > 0">
+                <h1>Contact realised</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval" *ngFor="let contact of contactRealised">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div *ngIf="contactRequest?.length > 0">
+                <h1>Contact request</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval req" *ngFor="let contact of contactRequest">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
+                        <div>
+                            <i class="bi bi-check-circle" id="confirm" (click)="confirmMatch(contact)"></i>
+                        </div>
+                        <div>
+                            <i class="bi bi-x-circle " id="reject" (click)="rejectMatch(contact)"></i>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <br>
+
+            <div *ngIf="contactWaiting?.length > 0">
+                <h1>Waiting response</h1>
+                <hr class="hr-3">
+                <div class="row">
+                    <div class="oval waiting" *ngFor="let contact of contactWaiting">
+                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
+                             class="avatar">
+                        <h3>{{ contact?.name_user }}</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
