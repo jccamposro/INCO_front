@@ -64,6 +64,19 @@
                     </button>
                 </div>
             </form>
+            <hr>
+            <form (ngSubmit)="enviarImagen1()" >
+                <div class="form-group">
+                    <label class="col-lg-12 d-md-flex align-items-md-stretch form-group" 
+                    for="Main_file">Actualizar foto de perfil</label>
+                    <input type="file" form_control_name="Main_file" name="Main_file" id="Main_file" 
+                    class="col-lg-12 d-md-flex align-items-md-stretch form-group"
+                    (change)="uploadImage($event)">
+                </div>
+                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
+                <button type="submit" class="btn btn-primary">Actualizar</button>
+            </div>
+            </form>
         </div>
     </section><!-- End About Section -->
 

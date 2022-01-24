@@ -83,4 +83,24 @@ export class InfluencerSettingsComponent implements OnInit {
         }
     }
 
+    files:any;
+       uploadImage(event:any){
+        this.files = event.target.files[0];
+        console.log(this.files)
+       }
+       enviarImagen1(){
+        const formData = new FormData();
+        formData.append("photos", this.files, this.files.name);
+        console.log(this.files.name);
+        this.influencerService.onUpload(formData).subscribe((response: GenericResponse) => {
+            this.loadingService.disable();
+            this.toastr.success(response.response, 'Image user success!');
+        }, (error: any) => {
+            this.loadingService.disable();
+            this.toastr.error(error.error.response, 'Image user error!');
+        });
+        
+       }
+
+
 }

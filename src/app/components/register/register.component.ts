@@ -34,8 +34,9 @@ export class RegisterComponent implements OnInit {
             email: [ null, [ Validators.required ] ],
             CC: [ null, [ Validators.required ] ],
             role: [ null, [ Validators.required ] ],
+            profile_picture: 'nofoto.jpg',
         })
-        
+
     }
 
     
