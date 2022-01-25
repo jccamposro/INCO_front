@@ -25,4 +25,10 @@ export class CompanyService {
   public update(company: Company): Observable<GenericResponse> {
     return this.http.post<GenericResponse>(environment.urlBackend + 'company/update', company)
   }
+  public list(): Observable<{ company: Company }> {
+    return this.http.get<{ company: Company }>(environment.urlBackend + 'ventures')
+  }
+  public registerVenture(payload: any): Observable<GenericResponse> {
+    return this.http.post<GenericResponse>(environment.urlBackend + 'venture/register', payload)
+  }
 }
