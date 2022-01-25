@@ -28,4 +28,8 @@ export class InfluencerService {
         const headers = new HttpHeaders();
         return this.http.post(environment.urlBackend+'influencerFile',data, {headers:headers});
       }
+
+    public list(): Observable<{ influencer: Influencer }> {
+        return this.http.get<{ influencer: Influencer }>(environment.urlBackend + 'influencers')
+    }
 }
