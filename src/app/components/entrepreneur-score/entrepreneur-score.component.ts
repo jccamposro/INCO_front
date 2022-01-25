@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ScriptsLoadService } from 'src/app/scripts-load.service';
 
 @Component({
     selector: 'app-entrepreneur-score',
@@ -7,8 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntrepreneurScoreComponent implements OnInit {
 
-    constructor() {
-    }
+    constructor(private _scriptsLoad: ScriptsLoadService) {
+
+            _scriptsLoad.load([ 'userView' ])
+    
+        }
+    
 
     ngOnInit(): void {
     }
