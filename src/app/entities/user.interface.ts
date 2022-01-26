@@ -20,3 +20,7 @@ export interface UserMatch {
     user_id: number;
     name_user: string;
 }
+
+export interface UserForMatch {
+    id_user: number;
+}
