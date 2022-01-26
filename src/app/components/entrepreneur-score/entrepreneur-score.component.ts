@@ -9,12 +9,9 @@ import { ScriptsLoadService } from 'src/app/scripts-load.service';
 export class EntrepreneurScoreComponent implements OnInit {
 
     constructor(private _scriptsLoad: ScriptsLoadService) {
-
-            _scriptsLoad.load([ 'userView' ])
-    
+            _scriptsLoad.load([ 'userView' ])    
         }
     
-
     ngOnInit(): void {
     }
 

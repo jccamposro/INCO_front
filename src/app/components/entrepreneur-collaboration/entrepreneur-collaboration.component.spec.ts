@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { EntrepreneurCollaborationComponent } from './entrepreneur-collaboration.component';
 
 describe('EntrepreneurCollaborationComponent', () => {

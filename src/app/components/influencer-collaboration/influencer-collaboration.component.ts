@@ -16,9 +16,6 @@ export class InfluencerCollaborationComponent implements OnInit {
 
     ngOnInit(): void {
     };
-
-   
-
 }
 
 declare let isotope: any;

@@ -26,11 +26,13 @@ export class EntrepreneurCollaborationComponent implements OnInit {
         private influencerService: InfluencerService,
         private _scriptsLoad: ScriptsLoadService) {
 
-        _scriptsLoad.load([ 'userView' ])
+        _scriptsLoad.load(['userView','filter'])
 
     }
 
     ngOnInit(): void {
-}
+    };
 
 }
+declare let isotope: any;
+declare let lightbox: any;
