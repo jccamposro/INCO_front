@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { CompanyService } from 'src/app/services/company.service';
+import { VentureService } from 'src/app/services/venture.service';
 import { InfluencerService } from 'src/app/services/influencer.service';
 import { UserService } from 'src/app/services/user.service';
-import { Coincidence } from '../../entities/coincidence';
 import { MatchResponse } from '../../entities/reponse.interface';
 import { LoadingService } from '../../services/loading.service';
 import { ContactService } from '../../services/contact.service';
 import { ToastrService } from 'ngx-toastr';
-import { UserForMatch } from '../../entities/user.interface';
+import { UserForMatch, UserForMatchIN } from '../../entities/user.interface';
 
 @Component({
     selector: 'app-main-page',
@@ -17,7 +16,7 @@ import { UserForMatch } from '../../entities/user.interface';
 export class MainPageComponent implements OnInit {
 
     constructor(public influencerService: InfluencerService,
-                public companyService: CompanyService,
+                public ventureService: VentureService,
                 public userService: UserService,
                 private loadingService: LoadingService,
                 private service: ContactService,
@@ -25,11 +24,11 @@ export class MainPageComponent implements OnInit {
     }
 
     myData: any;
-    misObjetos: any = [];
+    influencers: any = [];
     myObjStr: any;
 
     myData2: any;
-    misObjetos2: any = [];
+    ventures: any = [];
     myObjStr2: any;
     isEntrepreneur = false;
     isInfluencer = false;
@@ -43,19 +42,19 @@ export class MainPageComponent implements OnInit {
                 this.isInfluencer = true;
             }
         });
-        this.influencerService.list().subscribe(data => {
+        this.influencerService.getInfluencers().subscribe(data => {
             console.warn(data);
             this.myData = data;
             this.myObjStr = JSON.stringify(data);
-            this.misObjetos = JSON.parse(this.myObjStr);
-            console.log(this.misObjetos);
+            this.influencers = JSON.parse(this.myObjStr);
+            console.log(this.influencers);
         });
-        this.companyService.list().subscribe(data => {
+        this.ventureService.getCollaborations().subscribe(data => {
             console.warn(data);
             this.myData2 = data;
             this.myObjStr2 = JSON.stringify(data);
-            this.misObjetos2 = JSON.parse(this.myObjStr2);
-            console.log(this.misObjetos2);
+            this.ventures = JSON.parse(this.myObjStr2);
+            console.log(this.ventures);
         })
     }
 
@@ -74,4 +73,18 @@ export class MainPageComponent implements OnInit {
             });
     }
 
+    public createMatchIn(userForMatchI: UserForMatchIN): void {
+        this.loadingService.enable();
+
+        this.service.createMatch({
+            id_entrepreneur: userForMatchI.id_entrepreneur,
+        })
+            .subscribe((response: MatchResponse) => {
+                this.loadingService.disable();
+                this.toastr.success(response.name_user, 'Reject match success!');
+            }, error => {
+                this.loadingService.disable();
+                this.toastr.error(error.error.response, 'Reject match error!');
+            });
+    }
 }

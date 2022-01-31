@@ -29,7 +29,7 @@ export class InfluencerService {
         return this.http.post(environment.urlBackend+'influencerFile',data, {headers:headers});
       }
 
-    public list(): Observable<{ influencer: Influencer }> {
+    public getInfluencers(): Observable<{ influencer: Influencer }> {
         return this.http.get<{ influencer: Influencer }>(environment.urlBackend + 'influencers')
     }
 }
