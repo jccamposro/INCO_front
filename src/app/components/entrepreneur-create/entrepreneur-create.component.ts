@@ -4,7 +4,7 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { GenericResponse } from 'src/app/entities/reponse.interface';
 import { AuthService } from 'src/app/services/auth.service';
-import { CompanyService } from 'src/app/services/company.service';
+import { VentureService } from 'src/app/services/venture.service';
 import { LoadingService } from 'src/app/services/loading.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class EntrepreneurCreateComponent implements OnInit {
     private authService: AuthService,
     private formBuilder: FormBuilder,
     private loadingService: LoadingService,
-    private companyService: CompanyService) {
+    private ventureService: VentureService) {
 }
 
   ngOnInit(): void {
@@ -36,7 +36,7 @@ export class EntrepreneurCreateComponent implements OnInit {
 
   submitForm() {
     this.loadingService.enable();
-    this.companyService.registerVenture(this.entrepreneurForm.value)
+    this.ventureService.registerVenture(this.entrepreneurForm.value)
         .subscribe((response: GenericResponse) => {
             this.loadingService.disable();
             this.toastr.success(response.response, 'Register success!');
