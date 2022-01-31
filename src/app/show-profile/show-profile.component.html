@@ -1,7 +1,15 @@
-<main id="main">
+<!--<main id="main">-->
     <ul *ngIf="isEntrepreneur">
-        <!-- ======= About Section ======= -->
-        <section id="about" class="about container">
+
+               <!-- ==================== Real page ===================== -->
+               <app-entrepreneur-profile></app-entrepreneur-profile>
+               <app-entrepreneur-collaboration></app-entrepreneur-collaboration>
+               <app-entrepreneur-score></app-entrepreneur-score>
+   
+                <!--Finish section-->
+        
+  <!--       
+      <section id="about" class="about container">
             <div class="container">
 
                 <div class="section-title">
@@ -13,14 +21,15 @@
                 </div>
             </div>
         </section>
-        <!-- End About Section -->
+        <app-influencer-profile></app-influencer-profile>
+       
 
-        <!-- ======= Facts Section ======= -->
+        
         <section id="facts" class="facts container">
             <div class="container">
 
                 <div class="section-title">
-                    <!--Aquí puede ser mucho mejor trar los datos generales-->
+                   
                     <h2>Categories</h2>
                     <h3>category</h3>
                     <p>Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex aliquid fuga eum quidem. Sit sint
@@ -29,7 +38,7 @@
                 </div>
 
                 <div class="row no-gutters">
-                    <!--Podemos guiarnos para las fotos-->
+                   
                     <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
@@ -74,74 +83,162 @@
 
             </div>
         </section>
-        <!-- End Facts Section -->
+       
 
-        <!-- ======= Contact Section ======= -->
-
-        <!-- ======= Portfolio Section ======= -->
+       
+        
         <section class="section " id="portfolio">
             <div class="container">
               <div class="section-title">
                 <h2>Collaboration</h2>
                 <div class="line-dec"></div>
-                <span>Select your entrepreneur favorite </span>
+                <span><p>Select your entrepreneur favorite</p> </span>
               </div>
               <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                  <div class="isotope-wrapper">
+                <div class="col-lg-12 col-sm-12 d-flex justify-content-center">
+                  <div class="isotope-wrapper col-lg-12 col-sm-12">
                     <div class="isotope-toolbar">
                       <label id="portfolio-flters"><button class="active btn btn-primary" data-type="*" name="isotope-filter"></button>
                         <span class="display-6">All</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Cosmetic" name="isotope-filter"></button>
-                        <span>Cosmetic</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Technology" name="isotope-filter"></button>
-                        <span>Technology</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Esthetic" name="isotope-filter"></button>
+                        <span>Esthetic</span></label>
                       <label id="portfolio-flters"><button class="btn btn-primary" data-type="Food" name="isotope-filter"></button>
                         <span>Food</span></label>
                       <label id="portfolio-flters"><button class="btn btn-primary" data-type="Sports" name="isotope-filter"></button>
-                        <span>Sports</span></label>
+                        <span>Sports
+                        </span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Technology" name="isotope-filter"></button>
+                        <span>Technology</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Home" name="isotope-filter"></button>
+                          <span>Home</span></label>
                     </div>
                     <div class="isotope-box">
-                      <div class="isotope-item" data-type="Cosmetic">
-                        <figure>
-                          <img src="https://static.bellezaparatodos.com/2019/12/EM-Cosmetics-Magic-Hour-Collection.jpg"
-                            alt="sq-sample26" />
-                        </figure>
-                      </div>
-        
-                      <div class="isotope-item" data-type="Technology">
-                        <figure>
-                          <img src="https://cdn2.totalcode.net/mercacentro/product-zoom/es/celular-xiaomi-redmi-note-8-128-gb-azul-1.webp"
-                            alt="sq-sample26" />
-                        </figure>
-                      </div>
-        
-                      <div class="isotope-item" data-type="Technology">
-                        <figure>
-                          <img src="https://falabella.scene7.com/is/image/Falabella/15229154_1?wid=800&hei=800&qlt=70"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="Esthetic">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              Descripción del emprendimiento (Veture)
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
                       <div class="isotope-item" data-type="Food">
-                        <figure>
-                          <img src="https://www.recetasjudias.com/wp-content/uploads/2015/06/Causa-Limena2.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                          <div class="card-container">
+                            <mat-card class="example-card">
+                              <mat-card-header>
+                              <div mat-card-avatar class="example-header-image"></div>
+                              <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                              <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                              </mat-card-header>
+                              <img mat-card-image src="http://pm1.narvii.com/7658/4c600ac5be2bcd8e419df791cdfa9e97c80ed195r1-540-540v2_uhq.jpg" alt="Photo of a Shiba Inu">
+                              <br>
+                              <mat-card-content>
+                              <p>
+                                Descripción del emprendimiento
+                              </p>
+                              </mat-card-content>
+                              <mat-card-actions>
+                              </mat-card-actions>
+                            </mat-card>
+                          </div>
                       </div>
         
                       <div class="isotope-item" data-type="Sports">
-                        <figure>
-                          <img src="https://i.linio.com/p/223a3904709c26a7f2cf84b20d84914e-product.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://img-9gag-fun.9cache.com/photo/abGbeAB_460s.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              Descripción del emprendimiento
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Cosmetic">
-                        <figure>
-                          <img src="https://static.vix.com/es/sites/default/files/styles/1x1/public/imj/esto-es-lo-que-te-sucedera-si-usas-cosmeticos-de-mala-calidad.jpg"
-                            alt="galdiator" />
-                        </figure>
+                      <div class="isotope-item" data-type="Technology">
+        
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                            </mat-card-header>
+                            <br>
+                            <img mat-card-image src="https://pm1.narvii.com/6770/9ca45e6b78d9e059d8f5ada9db60c76a1e91e7a3v2_hq.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              Descripción del emprendimiento
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
+                      </div>
+        
+                      <div class="isotope-item" data-type="Home">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              Descripción del emprendimiento
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
+                      </div>
+        
+                      <div class="isotope-item card-container" data-type="Esthetic">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                          <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">Aquí iran los nombres de perfil</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Etiqueta</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              Descripción del emprendimiento
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -149,10 +246,8 @@
               </div>
             </div>
           </section>
-       
-        <!-- End Portfolio Section -->
 
-        <!-- ======= Skills Section ======= -->
+       
         <section id="skills" class="skills section-bg">
             <div class="container">
 
@@ -223,8 +318,7 @@
             </div>
         </section>
 
-        <!-- ======= Testimonials Section ======= -->
-        <!-- Se puede dejar más que todo para un futuro como los comentarios y eso pero de momento creo que no-->
+       
         <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
@@ -252,7 +346,7 @@
                                 <h3>Virginia Goodman</h3>
                                 <h4>Make up Entrepreneur </h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
@@ -268,7 +362,7 @@
                                 <h3>Sara Wilsson</h3>
                                 <h4>Designer Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
@@ -283,7 +377,7 @@
                                 <h3>Jena Karlis</h3>
                                 <h4>Store Owner Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
@@ -299,7 +393,7 @@
                                 <h3>Matt Brandon</h3>
                                 <h4>Food Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
@@ -315,7 +409,7 @@
                                 <h3>Sarah Larson</h3>
                                 <h4>Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                     </div>
                     <div class="swiper-pagination"></div>
@@ -323,13 +417,20 @@
 
             </div>
         </section>
-        <!-- End Testimonials Section -->
-
+     -->
     </ul>
+
     <ul *ngIf="!isEntrepreneur">
 
-         <!-- ======= About Section ======= -->
-        <section id="about" class="about">
+               <!-- ==================== Real page ===================== -->
+               <app-influencer-profile></app-influencer-profile>
+               <app-influencer-collaboration></app-influencer-collaboration>
+               <app-influencer-score></app-influencer-score>
+   
+                <!--Finish section-->
+
+         
+        <!-- <section id="about" class="about">
             <div class="container">
 
                 <div class="section-title">
@@ -341,19 +442,19 @@
                         class="col-lg-12 col-sm-12 col-md-8 py-1">
                 </div>
             </div>
-        </section><!-- End About Section -->
+        </section>
 
-        <!-- ======= Facts Section ======= -->
+        
         <section id="facts" class="facts">
             <div class="container">
 
                 <div class="section-title">
-                    <!--Aquí puede ser mucho mejor trar los datos generales-->
+                    
                     <h2>Facts</h2>
                 </div>
 
                 <div class="row no-gutters">
-                    <!--Podemos guiarnos para las fotos-->
+                    
                     <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
                         <div class="count-box">
                             <i class="bi bi-emoji-smile"></i>
@@ -383,72 +484,161 @@
                 </div>
 
             </div>
-        </section><!-- End Facts Section -->
+        </section>
         
-        <!-- ======= Portfolio Section ======= -->
+        
         <section class="section " id="portfolio">
             <div class="container">
               <div class="section-title">
                 <h2>Collaboration</h2>
                 <div class="line-dec"></div>
-                <span>Select your influencer favorite </span>
+                <span><p>Select your entrepreneur favorite </p></span>
               </div>
               <div class="row">
-                <div class="col-lg-12 d-flex justify-content-center">
-                  <div class="isotope-wrapper">
+                <div class="col-lg-12 col-sm-12 d-flex justify-content-center">
+                  <div class="isotope-wrapper col-lg-12 col-sm-12">
                     <div class="isotope-toolbar">
                       <label id="portfolio-flters"><button class="active btn btn-primary" data-type="*" name="isotope-filter"></button>
                         <span class="display-6">All</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Cosmetic" name="isotope-filter"></button>
-                        <span>Cosmetic</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Technology" name="isotope-filter"></button>
-                        <span>Technology</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Food" name="isotope-filter"></button>
-                        <span>Food</span></label>
-                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Sports" name="isotope-filter"></button>
-                        <span>Sports</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Fashion bloggers" name="isotope-filter"></button>
+                        <span>Fashion bloggers</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Foodies" name="isotope-filter"></button>
+                        <span>Foodies</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="gamers and technology gurus" name="isotope-filter"></button>
+                        <span>gamers and technology gurus</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Celebrities and artists" name="isotope-filter"></button>
+                        <span>Celebrities and artists</span></label>
+                      <label id="portfolio-flters"><button class="btn btn-primary" data-type="Fitness and healthy life" name="isotope-filter"></button>
+                        <span>Fitness and healthy life</span></label>
                     </div>
                     <div class="isotope-box">
-                      <div class="isotope-item" data-type="Cosmetic">
-                        <figure>
-                          <img src="https://elcomercio.pe/resizer/6VstkRKUycChPLg1LkQzNzbLFck=/1200x900/smart/filters:format(jpeg):quality(75)/arc-anglerfish-arc2-prod-elcomercio.s3.amazonaws.com/public/VNEMTUFDDNFXFBYSADX25454UQ.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="Fashion bloggers">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              description
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Technology">
-                        <figure>
-                          <img src="https://i.ytimg.com/vi/YrETNRtC3-s/maxresdefault.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="Foodies">
+                          <div class="card-container">
+                            <mat-card class="example-card">
+                              <mat-card-header>
+                              <div mat-card-avatar class="example-header-image"></div>
+                              <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                              <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                              </mat-card-header>
+                              <img mat-card-image src="http://pm1.narvii.com/7658/4c600ac5be2bcd8e419df791cdfa9e97c80ed195r1-540-540v2_uhq.jpg" alt="Photo of a Shiba Inu">
+                              <br>
+                              <mat-card-content>
+                              <p>
+                                description
+        
+                              </p>
+                              </mat-card-content>
+                              <mat-card-actions>
+                              </mat-card-actions>
+                            </mat-card>
+                          </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Technology">
-                        <figure>
-                          <img src="https://pbs.twimg.com/media/DSaDgAnWAAAWtqz.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="gamers and technology gurus">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://img-9gag-fun.9cache.com/photo/abGbeAB_460s.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              description
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Food">
-                        <figure>
-                          <img src="https://elcomercio.pe/resizer/_osngAPYc6LNk30ozWoJRWR7y4c=/1200x1200/smart/filters:format(jpeg):quality(75)/cloudfront-us-east-1.images.arcpublishing.com/elcomercio/ULZM6RERGRBFFDZ7UX3OH6DQPU.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="Celebrities and artists">
+        
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                            </mat-card-header>
+                            <br>
+                            <img mat-card-image src="https://pm1.narvii.com/6770/9ca45e6b78d9e059d8f5ada9db60c76a1e91e7a3v2_hq.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              description
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Sports">
-                        <figure>
-                          <img src="https://i.ytimg.com/vi/f25Yj2roCV4/maxresdefault.jpg"
-                            alt="sq-sample26" />
-                        </figure>
+                      <div class="isotope-item" data-type="Fitness and healthy life">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                            <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              description
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
         
-                      <div class="isotope-item" data-type="Cosmetic">
-                        <figure>
-                          <img src="https://www.veridicoshop.com/wp-content/uploads/2018/11/veridico-shop-james-charles-palette5.jpg"
-                            alt="galdiator" />
-                        </figure>
+                      <div class="isotope-item card-container" data-type="Fitness and healthy life">
+                        <div class="card-container">
+                          <mat-card class="example-card">
+                          <mat-card-header>
+                            <div mat-card-avatar class="example-header-image"></div>
+                            <mat-card-title style="margin-bottom: 0px;">User name</mat-card-title>
+                            <mat-card-subtitle tyle="margin-bottom: 0px;">Tag</mat-card-subtitle>
+                            </mat-card-header>
+                            <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                            <br>
+                            <mat-card-content>
+                            <p>
+                              description
+                            </p>
+                            </mat-card-content>
+                            <mat-card-actions>
+                            </mat-card-actions>
+                          </mat-card>
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -456,10 +646,8 @@
               </div>
             </div>
           </section>
+  
         
-        <!-- End Portfolio Section -->
-
-        <!-- ======= Skills Section ======= -->
         <section id="skills" class="skills section-bg">
             <div class="container">
 
@@ -530,8 +718,7 @@
             </div>
         </section>
 
-        <!-- ======= Testimonials Section ======= -->
-        <!-- Se puede dejar más que todo para un futuro como los comentarios y eso pero de momento creo que no-->
+      
         <section id="testimonials" class="testimonials section-bg">
             <div class="container">
 
@@ -559,7 +746,7 @@
                                 <h3>Virginia Goodman</h3>
                                 <h4>Make up Entrepreneur </h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="100">
@@ -575,7 +762,7 @@
                                 <h3>Sara Wilsson</h3>
                                 <h4>Designer Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="200">
@@ -590,7 +777,7 @@
                                 <h3>Jena Karlis</h3>
                                 <h4>Store Owner Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="300">
@@ -606,7 +793,7 @@
                                 <h3>Matt Brandon</h3>
                                 <h4>Food Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                         <div class="swiper-slide">
                             <div class="testimonial-item" data-aos="fade-up" data-aos-delay="400">
@@ -622,15 +809,18 @@
                                 <h3>Sarah Larson</h3>
                                 <h4>Entrepreneur</h4>
                             </div>
-                        </div><!-- End testimonial item -->
+                        </div>
 
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
 
             </div>
-        </section>
-        <!-- End Testimonials Section -->
+        </section> -->
+       
 
     </ul>
-</main>
+<!-- </main> -->
+
+
+
