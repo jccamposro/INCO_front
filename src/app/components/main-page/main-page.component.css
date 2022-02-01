@@ -204,7 +204,13 @@ mat-card{
 -moz-hyphens: auto;
     hyphens: auto;
 }
-mat-card-content{
-	width: 400px; 
+mat-card-content{ 
 	height:150px;
 }
+p {
+	overflow: hidden;
+	display: -webkit-box;
+	text-align : justify;
+	-webkit-line-clamp: 8;
+	-webkit-box-orient: vertical;
+  }
