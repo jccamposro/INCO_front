@@ -73,12 +73,6 @@
                                                formControlName="tik_tok">
                                     </div>
                                     <div class="mb-2">
-                                        <mat-slide-toggle (click)="toggleKwai()">Kwai</mat-slide-toggle>
-                                        <input *ngIf='!Kwai' type="text" class="form-control"
-                                               placeholder="Url Kwai Profile"
-                                               formControlName="kawai">
-                                    </div>
-                                    <div class="mb-2">
                                         <mat-slide-toggle (click)="togglePinterest()">Pinterest</mat-slide-toggle>
                                         <input *ngIf='!Pinterest' type="text" class="form-control"
                                                placeholder="Url Pinterest Profile"
@@ -96,19 +90,6 @@
                                                placeholder="Url Reddit Profile"
                                                formControlName="reddit">
                                     </div>
-                                    <div class="mb-2">
-                                        <mat-slide-toggle (click)="toggleWeibo()">Weibo</mat-slide-toggle>
-                                        <input *ngIf='!Weibo' type="text" class="form-control"
-                                               placeholder="Url Weibo Profile"
-                                               formControlName="weibo">
-                                    </div>
-                                    <div class="mb-2">
-                                        <mat-slide-toggle (click)="toggleBiliBili()">Bilibili</mat-slide-toggle>
-                                        <input *ngIf='!BiliBili' type="text" class="form-control"
-                                               placeholder="Url Bilibili Profile"
-                                               formControlName="bilibili">
-                                    </div>
-
                                     <button type="submit"
                                             class="btnRegister"
                                             [disabled]="!registerInfluencerForm.valid">
