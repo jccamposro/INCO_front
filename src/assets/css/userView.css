@@ -254,30 +254,16 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/*--------------------------------------------------------------
-# Hero Section
+  /*--------------------------------------------------------------
+# HERO
 --------------------------------------------------------------*/
-#hero {
-  width: 100%;
-  height: 100vh;
-  background: url("../img/hero-bg.jpg") top center;
-  background-size: cover;
-}
-#hero:before {
-  content: "";
-  background: rgba(5, 13, 24, 0.3);
-  position: absolute;
-  bottom: 0;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 1;
-}
+
 #hero .hero-container {
   position: relative;
   z-index: 2;
   min-width: 300px;
 }
+
 #hero h1 {
   margin: 0 0 10px 0;
   font-size: 64px;
@@ -297,14 +283,10 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: 1px;
   border-bottom: 3px solid #149ddd;
 }
-@media (min-width: 1024px) {
-  #hero {
-    background-attachment: fixed;
-  }
-}
+
 @media (max-width: 768px) {
   #hero h1 {
-    font-size: 28px;
+    font-size: 32px;
     line-height: 36px;
   }
   #hero h2 {
@@ -312,6 +294,38 @@ h1, h2, h3, h4, h5, h6 {
     line-height: 24px;
     margin-bottom: 30px;
   }
+}
+
+/*--------------------------------------------------------------
+# Facts
+--------------------------------------------------------------*/
+.facts {
+  padding-bottom: 20px;  
+}
+.facts .count-box {
+  padding: 3% 3% 20px 3%;
+  width: 100%;
+}
+.facts .count-box i {
+  display: block;
+  font-size: 44px;
+  color: #149ddd;
+  float: left;
+  line-height: 0;
+}
+.facts .count-box span {
+  font-size: 48px;
+  line-height: 40px;
+  display: block;
+  font-weight: 700;
+  color: #050d18;
+  margin-left: 60px;
+}
+.facts .count-box p {
+  margin: 0 0 0 60px;
+  font-family: "Raleway", sans-serif;
+  font-size: 20px;
+  color: #122f57;
 }
 
 /*--------------------------------------------------------------
@@ -381,50 +395,7 @@ section {
   margin-bottom: 0;
 }
 
-/*--------------------------------------------------------------
-# Facts
---------------------------------------------------------------*/
-.facts {
-  padding-bottom: 30px;
-}
-.facts .count-box {
-  padding: 30px;
-  width: 100%;
-}
-.facts .count-box i {
-  display: block;
-  font-size: 44px;
-  color: #149ddd;
-  float: left;
-  line-height: 0;
-}
-.facts .count-box span {
-  font-size: 48px;
-  line-height: 40px;
-  display: block;
-  font-weight: 700;
-  color: #050d18;
-  margin-left: 60px;
-}
-.facts .count-box p {
-  padding: 15px 0 0 0;
-  margin: 0 0 0 60px;
-  font-family: "Raleway", sans-serif;
-  font-size: 14px;
-  color: #122f57;
-}
-.facts .count-box a {
-  font-weight: 600;
-  display: block;
-  margin-top: 20px;
-  color: #122f57;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  transition: ease-in-out 0.3s;
-}
-.facts .count-box a:hover {
-  color: #1f5297;
-}
+
 
 /*--------------------------------------------------------------
 # Akills

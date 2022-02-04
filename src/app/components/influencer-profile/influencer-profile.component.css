@@ -1,0 +1,41 @@
+p{
+    font-size: 20px;
+}
+
+.about{
+    padding: 2%;
+}
+
+  /*--------------------------------------------------------------
+# HERO
+--------------------------------------------------------------*/
+#hero {
+    width: 100%;
+    height: 100vh;
+    background: url("https://static.nationalgeographic.es/files/styles/image_3200/public/01-lion-populations-nationalgeographic_1777804.jpg?w=1900&h=1267") top center;
+    background-size: cover;
+  }
+
+
+  /*--------------------------------------------------------------
+# Social Media
+--------------------------------------------------------------*/
+
+.social-media{
+    padding-top: 20px;
+}
+
+.social-media i{
+    font-size: 50px;
+    color: #149ddd;
+    margin-right: 2%;
+    transition-duration: .4s;
+}
+
+.social-media i:hover{
+    transition: all;
+    transition-duration: .4s;
+    color: #3931af;
+
+}
+
