@@ -15,6 +15,12 @@ body {
   box-sizing: inherit;
 }
 
+/*  p   */
+p{
+  font-size: 20px;
+}
+
+
 /*         section                 */
 .section {
   color: rgb(0, 0, 0);
@@ -286,3 +292,13 @@ p {
     transition:.3s ease-in-out; 
     color:black;
   }
+
+    /*--------------------------------------------------------------
+# HERO
+--------------------------------------------------------------*/
+#hero {
+  width: 100%;
+  height: 100vh;
+  background: url("https://static.nationalgeographic.es/files/styles/image_3200/public/01-lion-populations-nationalgeographic_1777804.jpg?w=1900&h=1267") top center;
+  background-size: cover;
+}
