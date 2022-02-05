@@ -302,3 +302,39 @@ p {
   background: url("https://static.nationalgeographic.es/files/styles/image_3200/public/01-lion-populations-nationalgeographic_1777804.jpg?w=1900&h=1267") top center;
   background-size: cover;
 }
+#hero2 {
+  width: 100%;
+  height: 100vh;
+  background: url("https://www.wallpapertip.com/wmimgs/98-980295_elon-musk-photo-hd.jpg") top center;
+  background-size: cover;
+}
+
+.hero-entrepeneur{
+  color: white;
+}
+
+.textarea {
+  resize: none
+}
+.submit-comment{
+  color: white;
+  background-color: #008cff;
+}
+.social-media{
+  padding-top: 20px;
+  padding-bottom: 30px;
+}
+
+.social-media i{
+  font-size: 50px;
+  color: #149ddd;
+  margin-right: 2%;
+  transition-duration: .4s;
+}
+
+.social-media i:hover{
+  transition: all;
+  transition-duration: .4s;
+  color: #3931af;
+
+}

@@ -205,6 +205,7 @@ mat-card{
     hyphens: auto;
 }
 mat-card-content{ 
+	display: flex;
 	height:150px;
 }
 p {
