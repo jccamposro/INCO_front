@@ -9,13 +9,15 @@
             <img src="https://www.eldiario.com.co/wp-content/uploads/2019/01/nn.jpg" alt="" class="img-fluid rounded-circle">
             <!-- <img src="http://127.0.0.1:8000/storage/{{user?.profile_picture}}" alt="" class="img-fluid rounded-circle"> -->
             <h1 class="text-light"><a href="../../../index.html">{{ user?.name_user }}</a></h1>
-            <div class="social-links mt-3 text-center">
-
-                <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
-                <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-                <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
-                <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+            <div class="social-links mt-3 text-center" *ngIf="!isEntrepreneur">
+                <a href={{facebook}} class="facebook" *ngIf="facebook !== null"><i class="bx bxl-facebook"></i></a>
+                <a href={{twitter}} class="twitter" *ngIf="twitter !== null"><i class="bx bxl-twitter"></i></a>
+                <a href={{instagram}} class="instagram" *ngIf="instagram !== null"><i class="bx bxl-instagram"></i></a>
+                <!-- <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
+                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
+                 -->
             </div>
         </div>
 

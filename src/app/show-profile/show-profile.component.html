@@ -1,11 +1,11 @@
 <!--<main id="main">-->
-    <ul *ngIf="isEntrepreneur">
+    <!-- <ul *ngIf="isEntrepreneur"> -->
 
                <!-- ==================== Real page ===================== -->
-               <app-entrepreneur-profile></app-entrepreneur-profile>
+               <!-- <app-entrepreneur-profile></app-entrepreneur-profile>
                <app-entrepreneur-collaboration></app-entrepreneur-collaboration>
                <app-entrepreneur-score></app-entrepreneur-score>
-   
+    -->
                 <!--Finish section-->
         
   <!--       
@@ -418,14 +418,14 @@
             </div>
         </section>
      -->
-    </ul>
+    <!-- </ul>
 
-    <ul *ngIf="!isEntrepreneur">
+    <ul *ngIf="!isEntrepreneur"> -->
 
                <!-- ==================== Real page ===================== -->
-               <app-influencer-profile></app-influencer-profile>
+               <!-- <app-influencer-profile></app-influencer-profile>
                <app-influencer-collaboration></app-influencer-collaboration>
-               <app-influencer-score></app-influencer-score>
+               <app-influencer-score></app-influencer-score> -->
    
                 <!--Finish section-->
 
@@ -818,9 +818,132 @@
             </div>
         </section> -->
        
-
-    </ul>
+<!-- 
+    </ul> -->
 <!-- </main> -->
 
 
+
+  <div *ngIf="isInfluencer">
+    <!-- ======= About Section ======= -->
+    <section id="about" class="about">
+      <div class="container">
+          <div class="section-title">
+            <h2>{{misObjetos.name}}</h2>
+            <hr>
+              <h2>About Me</h2>
+              <p>{{misObjetos.description}}</p>
+          </div>
+          <div class="justify-content-center">
+              <img src="https://astelus.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada.jpg"
+                   class="col-lg-12 col-sm-12 col-md-12">
+          </div>
+      </div>
+  </section><!-- End About Section -->
+
+  <!-- ======= Facts Section ======= -->
+  <section id="facts" class="facts">
+      <div class="container">
+
+          <div class="section-title">
+              <!--Aquí puede ser mucho mejor trar los datos generales-->
+              <h2>Facts</h2>
+          </div>
+
+          <div class="row no-gutters">
+              <!--Podemos guiarnos para las fotos-->
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                  <div class="count-box">
+                      <i class="bi bi-emoji-smile"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                      <p><strong>Contacts made </strong>Who many Entrepreneurs wre interested in Alex profile</p>
+                  </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+                  <div class="count-box">
+                      <i class="bi bi-journal-richtext"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                      <p><strong>Score</strong>How many users gave a score to Alex profile</p>
+                  </div>
+              </div>
+
+              <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+                  <div class="count-box">
+                      <i class="bi bi-people"></i>
+                      <span data-purecounter-start="0" data-purecounter-end="32550" data-purecounter-duration="1"
+                            class="purecounter"></span>
+                      <p><strong>Followers</strong> 10000</p>
+                  </div>
+              </div>
+          </div>
+
+      </div>
+  </section><!-- End Facts Section -->
+</div>
+
+
+<div *ngIf="isEntrepreneur">
+  <div *ngFor="let personaje of misObjetos">
+  <!-- ======= About Section ======= -->
+  <section id="about" class="about">
+    <div class="container">
+        <div class="section-title">
+            <h2>{{personaje.name_user}}</h2>
+            <hr>
+            <h2>About Me</h2>
+            <p>{{personaje.description}}</p>
+        </div>
+        <div class="justify-content-center">
+            <img src="https://astelus.com/wp-content/viajes/Lago-Moraine-Parque-Nacional-Banff-Alberta-Canada.jpg"
+                 class="col-lg-12 col-sm-12 col-md-12">
+        </div>
+    </div>
+</section><!-- End About Section -->
+
+<!-- ======= Facts Section ======= -->
+<section id="facts" class="facts">
+    <div class="container">
+
+        <div class="section-title">
+            <!--Aquí puede ser mucho mejor trar los datos generales-->
+            <h2>Facts</h2>
+        </div>
+
+        <div class="row no-gutters">
+            <!--Podemos guiarnos para las fotos-->
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
+                <div class="count-box">
+                    <i class="bi bi-emoji-smile"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                    <p><strong>Contacts made </strong>Who many Entrepreneurs wre interested in Alex profile</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
+                <div class="count-box">
+                    <i class="bi bi-journal-richtext"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                    <p><strong>Score</strong>How many users gave a score to Alex profile</p>
+                </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
+                <div class="count-box">
+                    <i class="bi bi-people"></i>
+                    <span data-purecounter-start="0" data-purecounter-end="32550" data-purecounter-duration="1"
+                          class="purecounter"></span>
+                    <p><strong>Followers</strong> 10000</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</section><!-- End Facts Section -->
+</div>
+</div>
 

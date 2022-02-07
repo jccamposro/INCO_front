@@ -76,7 +76,7 @@ const routes: Routes = [
                 component: ContactsComponent
             },
             {
-                path: 'show-profile',
+                path: 'show-profile/:id',
                 component: ShowProfileComponent
             }
         ]
