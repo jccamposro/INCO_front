@@ -1,3 +1,8 @@
+h1{
+  text-align: center;
+  margin: 10px 0px 10px 0px;
+}
+
 form {
     border-radius: 20px ;
     padding: 5% 5% 0 5%;
@@ -15,3 +20,27 @@ hr.hr-3 {
     height: 0;
     border-top: 2px solid #000000;
   }
+
+  /* Card container */
+  .card-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .example-card {
+    max-width: 475px ;
+    margin: 3%;
+  
+    }
+    
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+    }
+
+    i{
+      font-size: 20px;
+      padding: 4px;
+      margin-right: 2px;
+    }

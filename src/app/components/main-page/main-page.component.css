@@ -190,3 +190,28 @@ a{
 	text-decoration: none;
 	color: black;
 }
+mat-card{
+    object-fit: cover; /*this makes the image in src fit to the size specified below*/
+  width: 100%; /* Here you can use wherever you want to specify the width and also the height of the <img>*/
+  height: 80%;
+		-ms-word-break: break-all;
+    word-break: break-all;
+
+ /* Non standard for WebKit */
+    word-break: break-word;
+
+-webkit-hyphens: auto;
+-moz-hyphens: auto;
+    hyphens: auto;
+}
+mat-card-content{ 
+	display: flex;
+	height:150px;
+}
+p {
+	overflow: hidden;
+	display: -webkit-box;
+	text-align : justify;
+	-webkit-line-clamp: 8;
+	-webkit-box-orient: vertical;
+  }

@@ -26,5 +26,6 @@ export interface UserForMatch {
 }
 
 export interface UserForMatchIN {
-    id_entrepreneur: number;
+    id_user: number;
+    id_venture:number;
 }

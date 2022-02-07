@@ -22,7 +22,41 @@
     </div>
   </section>
 
-  <hr class="hr-3">  
+  <h1>My Ventures</h1>
+  <hr class="hr-3"> 
+  
+          <div class="col-xs-12 col-sm-6 col-md-4">
+            <div class="card-container">
+              <mat-card class="example-card">
+                <mat-card-header>
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title>Product_name</mat-card-title>
+                </mat-card-header>
+                <img mat-card-image src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Photo of a Shiba Inu">
+                <mat-card-content>
+                <p>
+                  product description
+                </p>
+                </mat-card-content>
+                <mat-card-actions>
+                      <button mat-icon-button [matMenuTriggerFor]="menu" aria-label="Example icon-button with a menu">
+                        <mat-icon>more_vert</mat-icon>
+                      </button>
+                      <mat-menu #menu="matMenu">
+                        <button mat-menu-item>
+                          <i class="bi bi-pencil-fill"></i>
+                          <span>Edit</span>
+                        </button>
+                        <button mat-menu-item>
+                          <i class="bi bi-file-earmark-x-fill"></i>
+                          <span>Delete</span>
+                        </button>
+                    </mat-menu>
+                  </mat-card-actions>
+              </mat-card>
+            </div >
+          
+    </div>
 
 
 

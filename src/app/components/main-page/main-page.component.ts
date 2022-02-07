@@ -77,7 +77,8 @@ export class MainPageComponent implements OnInit {
         this.loadingService.enable();
 
         this.service.createMatch({
-            id_entrepreneur: userForMatchI.id_entrepreneur,
+            id_user: userForMatchI.id_user,
+            id_venture: userForMatchI.id_venture,
         })
             .subscribe((response: MatchResponse) => {
                 this.loadingService.disable();
