@@ -24,11 +24,12 @@ export class VentureService {
     return this.http.post<GenericResponse>(environment.urlBackend + 'delete/venture', payload)
   }
 
-  public getVenture(): Observable<{ company: Company }> {
-    return this.http.get<{ company: Company }>(environment.urlBackend + 'venture')
+  public getVenture(id:any){
+    return this.http.get(environment.urlBackend+'venture/'+id);
   }
 
   public getCollaborations(): Observable<{ company: Company }> {
     return this.http.get<{ company: Company }>(environment.urlBackend + 'collaborations')
   }
+  
 }

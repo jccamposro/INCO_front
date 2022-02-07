@@ -17,6 +17,20 @@ import { GlobalService } from '../../services/global.service';
 export class LayoutComponent implements OnInit {
 
     public user: User;
+
+    myData:any;
+    misObjetos: any=[];
+    myObjStr:any;
+    facebook: any;
+    instagram: any;
+    kawai: any;
+    pinterest: any;
+    reddit: any;
+    snapchat: any;
+    tik_tok: any;
+    twitch: any;
+    twitter: any;
+
     
     constructor(
         private router: Router,
@@ -68,6 +82,24 @@ export class LayoutComponent implements OnInit {
                 this.loadingService.disable();
             }
         );
+
+        this.influencerService.getSocialNetworks().subscribe(data => {
+            console.warn(data);
+            this.myData = data;
+            this.myObjStr = JSON.stringify(data);
+            this.misObjetos = JSON.parse(this.myObjStr);
+            this.facebook = this.misObjetos.social_networks.facebook
+            this.instagram= this.misObjetos.social_networks.instagram;
+            this.kawai= this.misObjetos.social_networks.kawai;
+            this.pinterest= this.misObjetos.social_networks.pinterest;
+            this.reddit= this.misObjetos.social_networks.reddit;
+            this.snapchat= this.misObjetos.social_networks.snapchat;
+            this.tik_tok= this.misObjetos.social_networks.tik_tok;
+            this.twitch= this.misObjetos.social_networks.twitch;
+            this.twitter=this.misObjetos.social_networks.twitter;
+            console.log(this.misObjetos.social_networks.facebook);
+        });
+
     }
 
     public logout(): void {

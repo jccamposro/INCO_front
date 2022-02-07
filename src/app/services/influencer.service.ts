@@ -32,4 +32,10 @@ export class InfluencerService {
     public getInfluencers(): Observable<{ influencer: Influencer }> {
         return this.http.get<{ influencer: Influencer }>(environment.urlBackend + 'influencers')
     }
+    public getInfluencersById(id:any){
+        return this.http.get(environment.urlBackend+'influencer/'+id);
+      }
+      public getSocialNetworks(){
+        return this.http.get(environment.urlBackend+'socialNetworks/');
+      }
 }
