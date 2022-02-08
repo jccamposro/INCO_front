@@ -5,6 +5,10 @@ import { MatButtonModule} from '@angular/material/button';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
+import { MatAutocompleteModule } from "@angular/material/autocomplete";
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
 //services
 
 import { ScriptsLoadService } from "./scripts-load.service";
@@ -65,7 +69,7 @@ import { ShowProfileComponent } from './show-profile/show-profile.component';
         MainPageComponent,
         ChatComponent,
         ContactsComponent,
-        ShowProfileComponent
+        ShowProfileComponent,
     ],
     imports: [
         BrowserModule,
@@ -80,7 +84,10 @@ import { ShowProfileComponent } from './show-profile/show-profile.component';
         MatMenuModule,
         MatToolbarModule,
         MatIconModule,
-        MatCardModule
+        MatCardModule,
+        MatFormFieldModule,
+        MatAutocompleteModule,
+        MatInputModule
     ],
     providers: [
         {

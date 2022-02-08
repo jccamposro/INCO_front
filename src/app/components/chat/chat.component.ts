@@ -9,24 +9,12 @@ export class ChatComponent implements OnInit {
   showChat=false;
   logUser:any;
   newMessage:string = "";
-  messages:any= [
-    {
-      transmitter:"id",
-      text:"Hola"
-    },
-    {
-      transmitter:"id",
-      text:"Hola qué más"
-    },
-    {
-      transmitter:"id",
-      text:"Hola qué hace"
-    }
-  ];
+  messages:any= [];
   constructor() { }
 
+  //Se debe ingresar el servicio que me retorne los datos del usuario
   ngOnInit(): void {
-
+    //Función que nos devuelva el usuario
   }
 
   sendMessage(){
@@ -35,6 +23,7 @@ export class ChatComponent implements OnInit {
 
     console.log(this.newMessage);
     let message ={
+      //El id debería ser el usuario quien envía el mensaje
       transmitter:"id",
       text:this.newMessage
     }

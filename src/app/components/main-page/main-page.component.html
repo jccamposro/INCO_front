@@ -1,17 +1,25 @@
 
-	<div class="col-md-12" style=
-	"background: -webkit-linear-gradient(right, #3931af, #00c6ff); 
+	<div class="col-md-12" style="background: -webkit-linear-gradient(right, #3931af, #00c6ff); 
 	position: fixed;
 	z-index: 1;">
-		<form action="javascript:" class="search-bar">
-			<input type="search" name="search" pattern=".*\S.*" required>
-			<button class="search-btn" type="submit">
-				<span>Search</span>
-			</button>
+		
+			<form class="search-bar">
+				<mat-form-field class="search-input"  appearance="fill">
+				<mat-label>Search</mat-label>
+				<input type="text" matInput [formControl]="myControl" [matAutocomplete]="auto">
+				<mat-autocomplete #auto="matAutocomplete" [displayWith]="displayFn">
+					<mat-option *ngFor="let option of filteredOptions | async" [value]="option">
+					{{option.name}}
+					</mat-option>
+				</mat-autocomplete>
+				</mat-form-field>
 			</form>
-		 <img class="logo" src="assets/img/Logo_blanco.png" alt="INCO logo">
+		
+		<span class="cont-logo">
+		 	<img class="logo" src="assets/img/Logo_blanco.png" alt="INCO logo">
+		</span>
 	</div>
-
+	
 	<div style="height: 120px;"></div>
 	<div *ngIf="isInfluencer">
 	<div  class="modal-body row">
