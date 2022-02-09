@@ -27,7 +27,7 @@ export class InfluencerService {
     onUpload(data:any):Observable<any>{
         const headers = new HttpHeaders();
         return this.http.post(environment.urlBackend+'influencerFile',data, {headers:headers});
-      }
+    }
 
     public getInfluencers(): Observable<{ influencer: Influencer }> {
         return this.http.get<{ influencer: Influencer }>(environment.urlBackend + 'influencers')

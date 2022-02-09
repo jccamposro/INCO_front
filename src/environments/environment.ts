@@ -6,7 +6,7 @@ export const environment = {
   production: false,
 
 
-  urlBackend: "http://inco-server.herokuapp.com/api/",
+  urlBackend: "https://inco-server.herokuapp.com/api/",
 };
 
 /*
