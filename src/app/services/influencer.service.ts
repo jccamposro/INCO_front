@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { environment } from '../../environments/environment';
 import { Influencer, InfluencerInformation } from '../entities/influencer.interface';
 import { GenericResponse } from '../entities/reponse.interface';
+import { SocialNetworks } from '../entities/social-networks.interface';
 
 @Injectable({
     providedIn: 'root'
@@ -24,18 +25,21 @@ export class InfluencerService {
     public register(payload: any): Observable<GenericResponse> {
         return this.http.post<GenericResponse>(environment.urlBackend + 'influencer/register', payload)
     }
-    onUpload(data:any):Observable<any>{
+
+    onUpload(data: any): Observable<any> {
         const headers = new HttpHeaders();
-        return this.http.post(environment.urlBackend+'influencerFile',data, {headers:headers});
+        return this.http.post(environment.urlBackend + 'influencerFile', data, {headers: headers});
     }
 
     public getInfluencers(): Observable<{ influencer: Influencer }> {
         return this.http.get<{ influencer: Influencer }>(environment.urlBackend + 'influencers')
     }
-    public getInfluencersById(id:any){
-        return this.http.get(environment.urlBackend+'influencer/'+id);
-      }
-      public getSocialNetworks(){
-        return this.http.get(environment.urlBackend+'socialNetworks/');
-      }
+
+    public getInfluencersById(id: any) {
+        return this.http.get(environment.urlBackend + 'influencer/' + id);
+    }
+
+    public getSocialNetworks(): Observable<{ social_networks: SocialNetworks }> {
+        return this.http.get<{ social_networks: SocialNetworks }>(environment.urlBackend + 'socialNetworks/');
+    }
 }

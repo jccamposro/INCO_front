@@ -1,7 +1,8 @@
 
-     <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+     <section id="hero" class="d-flex flex-column justify-content-center align-items-center"
+              [ngStyle]="{backgroundImage:'url(' + backgroundImage + ')'}">
         <div class="hero-container" data-aos="fade-in">
-          <h1>{{name_user}}</h1>
+            <h1>{{ (user$ | async)?.name_user }}</h1>
           <p>I'm <span>INFLUENCER</span></p>
         </div>
       </section><!-- End Hero -->
@@ -13,7 +14,7 @@
                 <h2>About Me</h2>
             </div>
             <div class="justify-content-center">
-                <p>{{misObjetos.description}}</p>
+
             </div>
         </div>
     </section><!-- End About Section -->
@@ -46,22 +47,22 @@
         </div>
     </section><!-- End Facts Section -->
 
-    <section class="social-media">
+    <section class="social-media" *ngIf="(socialNetworks$ | async) as socialNetworks">
         <div class="container">
             <div class="section-title" style="padding: 0;">
                 <h2>Social media</h2>
             </div>
             <div class="row no-gutters">
-                <div  data-aos="fade-up" data-aos-delay="100">
-                    <a href={{facebook}} class="facebook" *ngIf="facebook !== null"><i class="bx bxl-facebook"></i></a>
-                    <a href={{twitter}} class="twitter" *ngIf="twitter !== null"><i class="bx bxl-twitter"></i></a>
-                    <a href={{instagram}} class="instagram" *ngIf="instagram !== null"><i class="bx bxl-instagram"></i></a>
-                    <a href={{youtube}} class="youtube" *ngIf="youtube !== null"><i class="bx bxl-youtube"></i></a>
-                    <a href={{snapchat}} class="snapchat" *ngIf="snapchat !== null"><i class="bx bxl-snapchat"></i></a>
-                    <a href={{tik_tok}} class="tik_tok" *ngIf="tik_tok !== null"><i class="bx bxl-tiktok"></i></a>
-                    <a href={{pinterest}} class="pinterest" *ngIf="pinterest !== null"><i class="bx bxl-pinterest"></i></a>
-                    <a href={{twitch}} class="twitch" *ngIf="twitch !== null"><i class="bx bxl-twitch"></i></a>
-                    <a href={{reddit}} class="reddit" *ngIf="reddit !== null"><i class="bx bxl-reddit"></i></a>
+                <div>
+                    <a [href]="socialNetworks?.facebook" class="facebook" *ngIf="socialNetworks?.facebook"><i class="bx bxl-facebook"></i></a>
+                    <a [href]="socialNetworks?.twitter" class="twitter" *ngIf="socialNetworks?.twitter"><i class="bx bxl-twitter"></i></a>
+                    <a [href]="socialNetworks?.instagram" class="instagram" *ngIf="socialNetworks?.instagram"><i class="bx bxl-instagram"></i></a>
+                    <a [href]="socialNetworks?.youtube" class="youtube" *ngIf="socialNetworks?.youtube"><i class="bx bxl-youtube"></i></a>
+                    <a [href]="socialNetworks?.snapchat" class="snapchat" *ngIf="socialNetworks?.snapchat"><i class="bx bxl-snapchat"></i></a>
+                    <a [href]="socialNetworks?.tik_tok" class="tik_tok" *ngIf="socialNetworks?.tik_tok"><i class="bx bxl-tiktok"></i></a>
+                    <a [href]="socialNetworks?.pinterest" class="pinterest" *ngIf="socialNetworks?.pinterest"><i class="bx bxl-pinterest"></i></a>
+                    <a [href]="socialNetworks?.twitch" class="twitch" *ngIf="socialNetworks?.twitch"><i class="bx bxl-twitch"></i></a>
+                    <a [href]="socialNetworks?.reddit" class="reddit" *ngIf="socialNetworks?.reddit"><i class="bx bxl-reddit"></i></a>
                 </div>
             </div>
         </div>

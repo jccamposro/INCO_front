@@ -6,15 +6,11 @@ import { MatchResponse } from '../../entities/reponse.interface';
 import { LoadingService } from '../loading.service';
 import { ContactService } from '../contact.service';
 import { ToastrService } from 'ngx-toastr';
-import { UserForMatch, UserForMatchIN } from '../../entities/user.interface';
-import {FormControl} from '@angular/forms';
-import {Observable} from 'rxjs';
-import {map, startWith} from 'rxjs/operators';
-
-
-export interface User {
-    name: string;
-  }
+import { User, UserForMatch, UserForMatchIN } from '../../entities/user.interface';
+import { FormControl } from '@angular/forms';
+import { Observable } from 'rxjs';
+import { map, startWith } from 'rxjs/operators';
+import { CacheService } from '../cache.service';
 
 @Component({
     selector: 'app-main-page',
@@ -24,15 +20,17 @@ export interface User {
 export class MainPageComponent implements OnInit {
 
     constructor(public influencerService: InfluencerService,
+                public cacheService: CacheService,
                 public ventureService: VentureService,
                 public userService: UserService,
                 private loadingService: LoadingService,
                 private service: ContactService,
                 private toastr: ToastrService) {
     }
+
     //Filter
     myControl = new FormControl();
-    options: User[] = [{name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'}];
+    options: any[] = [ {name: 'Mary'}, {name: 'Shelley'}, {name: 'Igor'} ];
     filteredOptions: Observable<User[]>;
     //Filter
 
@@ -47,14 +45,15 @@ export class MainPageComponent implements OnInit {
     isInfluencer = false;
 
     ngOnInit() {
-        this.userService.get().subscribe((resp: any) => {
-            if (resp.user.role == 1) {
-                this.isEntrepreneur = true;
+        const user: User = this.cacheService.user$.currentValue();
 
-            } else if (resp.user.role == 2) {
-                this.isInfluencer = true;
-            }
-        });
+        if (user.role == 1) {
+            this.isEntrepreneur = true;
+
+        } else if (user.role == 2) {
+            this.isInfluencer = true;
+        }
+
         this.influencerService.getInfluencers().subscribe(data => {
             console.warn(data);
             this.myData = data;
@@ -75,7 +74,7 @@ export class MainPageComponent implements OnInit {
             startWith(''),
             map(value => (typeof value === 'string' ? value : value.name)),
             map(name => (name ? this._filter(name) : this.options.slice())),
-          );
+        );
         //Filter
     }
 
@@ -83,13 +82,14 @@ export class MainPageComponent implements OnInit {
     //Filter
     displayFn(user: User): string {
         return user && user.name ? user.name : '';
-      }
+    }
 
-      private _filter(name: string): User[] {
+    private _filter(name: string): User[] {
         const filterValue = name.toLowerCase();
-    
+
         return this.options.filter(option => option.name.toLowerCase().includes(filterValue));
     }
+
     //Filter
 
     public createMatch(userForMatch: UserForMatch): void {

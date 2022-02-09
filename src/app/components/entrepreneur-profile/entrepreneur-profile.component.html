@@ -1,36 +1,37 @@
-    <section id="hero" class="d-flex flex-column justify-content-center align-items-center">
+    <section *ngIf="backgroundImage" id="hero" class="d-flex flex-column justify-content-center align-items-center"
+             [ngStyle]="{backgroundImage:'url(' + backgroundImage + ')'}">
         <div class="hero-container" data-aos="fade-in">
-        <h1>{{name_user}}</h1>
+        <h1>{{ (user$ | async)?.name_user }}</h1>
         <p>I'm <span>ENTREPENEUR</span></p>
         </div>
     </section><!-- End Hero -->
-    
+
     <!-- ======= About Section ======= -->
     <section id="about" class="about container">
         <div class="container">
             <div class="section-title" style="padding-bottom: 5px;">
-                <h2>About Us</h2>  
+                <h2>About Us</h2>
             </div>
             <div class="justify-content-center">
-                <p>{{company.description}}</p>
+                <p>{{ (company$ | async)?.description }}</p>
             </div>
         </div>
     </section><!-- End About Section -->
 
     <!-- ======= Facts Section ======= -->
-    <section id="facts" class="facts container" style="padding: 0 2% 10px 2%;">
+    <section id="facts" class="facts container" style="padding: 0 2% 10px 2%;" *ngIf="company$ | async as company">
         <div class="container">
             <div class="section-title" style="padding: 0;">
                 <h2>Company facts</h2>
             </div>
             <div class="row no-gutters">
-                
+
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up">
                     <div class="count-box">
                         <i class="bi bi-emoji-smile"></i>
                         <span data-purecounter-start="0" data-purecounter-end="232" data-purecounter-duration="1"
                               class="purecounter"></span>
-                        <p><strong>NIT <br> </strong>{{company.nit}}</p>
+                        <p><strong>NIT <br> </strong>{{ company?.nit }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
@@ -38,7 +39,7 @@
                         <i class="bi bi-journal-richtext"></i>
                         <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
                               class="purecounter"></span>
-                        <p><strong>Address <br></strong>{{company.address}}</p>
+                        <p><strong>Address <br></strong>{{ company?.address }}</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="100">
@@ -46,7 +47,7 @@
                       <i class="bi bi-globe"></i>
                       <span data-purecounter-start="0" data-purecounter-end="521" data-purecounter-duration="1"
                             class="purecounter"></span>
-                      <p><strong>Web domain <br></strong>{{company.web_domain}}</p>
+                      <p><strong>Web domain <br></strong>{{ company?.web_domain }}</p>
                   </div>
               </div>
 
@@ -54,15 +55,15 @@
                   <div class="count-box">
                     <i class="bi bi-headset"></i>
                     <span data-purecounter-start="0" data-purecounter-end="1453" data-purecounter-duration="1" class="purecounter"></span>
-                    <p><strong>Mail <br></strong> {{company.email}} </p>
+                    <p><strong>Mail <br></strong> {{ company?.email }} </p>
                   </div>
-                </div> 
+                </div>
                 <div class="col-lg-3 col-md-6 d-md-flex align-items-md-stretch" data-aos="fade-up" data-aos-delay="300">
                     <div class="count-box">
                         <i class="bi bi-telephone-fill"></i>
                         <span data-purecounter-start="0" data-purecounter-end="32550" data-purecounter-duration="1"
                               class="purecounter"></span>
-                        <p><strong>Contact <br></strong> {{company.contact_number}}</p>
+                        <p><strong>Contact <br></strong> {{ company?.contact_number }}</p>
                     </div>
                 </div>
             </div>
@@ -70,6 +71,6 @@
         </div>
     </section><!-- End Facts Section -->
 
-   
+
    <br><br>
 

@@ -47,6 +47,8 @@ import { ChatComponent } from './components/chat/chat.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 
+// Utils
+import './utils/extend-types.helper';
 
 @NgModule({
     declarations: [

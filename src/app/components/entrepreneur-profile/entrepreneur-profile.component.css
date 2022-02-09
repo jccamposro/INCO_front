@@ -11,6 +11,6 @@
 #hero {
     width: 100%;
     height: 100vh;
-    background: url("https://www.wallpapertip.com/wmimgs/98-980295_elon-musk-photo-hd.jpg") top center;
+    background-position: top center;
     background-size: cover;
   }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Company } from 'src/app/entities/company.interface';
-import { CompanyService } from 'src/app/services/company.service';
-import { UserService } from 'src/app/services/user.service';
+import { CacheService } from '../../services/cache.service';
+import { Observable } from 'rxjs';
+import { User } from '../../entities/user.interface';
+import { PhotosService } from '../../services/photos.service';
 
 @Component({
     selector: 'app-entrepreneur-profile',
@@ -9,28 +11,23 @@ import { UserService } from 'src/app/services/user.service';
     styleUrls: [ './entrepreneur-profile.component.css' ]
 })
 export class EntrepreneurProfileComponent implements OnInit {
-    name_user: any;
+    public name_user: string;
+    public company: Company;
+    public backgroundImage: string = "https://www.wallpapertip.com/wmimgs/98-980295_elon-musk-photo-hd.jpg";
 
-    constructor(public companyService: CompanyService, public userService: UserService) {
+    constructor(public cacheService: CacheService, private photoService: PhotosService) {
     }
 
-    myData:any;
-    misObjetos: any=[];
-    myObjStr:any;
-    company: Company;
+    ngOnInit() {
+        this.photoService.getPhotoEntrepreneur().subscribe(data => this.backgroundImage = data.image);
+    }
 
-    ngOnInit(){
-        this.userService.get().subscribe((resp: any) => {
-            console.warn(resp);
-            this.name_user = resp.user.name_user;
-        });
-        this.companyService.get().subscribe(data =>{
-            this.company = data.company;
-            console.warn(data);
-              this.myData=data;
-              this.myObjStr = JSON.stringify(data);
-              this.misObjetos=JSON.parse(this.myObjStr);
-        })
+    get user$(): Observable<User> {
+        return this.cacheService.user$
+    }
+
+    get company$(): Observable<Company> {
+        return this.cacheService.company$
     }
 
 }
