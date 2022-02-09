@@ -1,8 +1,8 @@
-<div *ngIf="!showChat" class="chatIconCont" (click)="showChat=true"> <!--A parte de eso en la condión se le debe añadir otro parámetro el cual pregunte por el tipo de usuario logueado esto permitirá identificar quien es el emisor-->
+<div style="z-index: 100" *ngIf="!showChat" class="chatIconCont" (click)="showChat=true"> <!--A parte de eso en la condión se le debe añadir otro parámetro el cual pregunte por el tipo de usuario logueado esto permitirá identificar quien es el emisor-->
   <img src="./assets/img/chat_icon.png" class="chatIcon" alt="chat_icon">
 </div>
 
-<div class="card text-center cardContainer" *ngIf="showChat"> <!--De igual manera se debe agregar la misma condición en esta parte-->
+<div style="z-index: 100" class="card text-center cardContainer" *ngIf="showChat"> <!--De igual manera se debe agregar la misma condición en esta parte-->
   <div class="card-header">
     CHAT
     <div class="closeI" (click)="showChat=false"><i class="bi bi-x-lg"></i></div>
