@@ -1,50 +1,79 @@
+<!-- ======= About Section ======= -->
+<section id="about" class="about">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact realised</h2>
+      <div class="line-dec"></div>
+      <span>
+        <p>See the contacts you have made, you can finish them whenever you want</p>
+      </span>
+    </div>
 
-
-    <!-- ======= About Section ======= -->
-    <section id="about" class="about">
-        <div class="container"> 
-            <h1>Contact realised</h1>
-            <hr class="hr-3">  
-            <div *ngIf="contactRealised?.length > 0">
-                <div class="row">
-                    <div class="oval" *ngFor="let contact of contactRealised">
-                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
-                             class="avatar">
-                        <h3>{{ contact?.name_user }}</h3>
-                    </div>
-                </div>
+    <div *ngIf="contactRealised?.length > 0">
+      <div *ngFor="let contact of contactRealised">
+        <div class="container">
+          <div class="row justify-content-start ">
+            <div class="col-3">
+              <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
             </div>
-            <br>
-
-            <h1>Contact request</h1>
-            <hr class="hr-3">
-            <div *ngIf="contactRequest?.length > 0">
-                <div class="row">
-                    <div class="oval req" *ngFor="let contact of contactRequest">
-                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
-                             class="avatar">
-                        <h3>{{ contact?.name_user }}</h3>
-                        <div>
-                            <i class="bi bi-check-circle" id="confirm" (click)="confirmMatch(contact)"></i>
-                        </div>
-                        <div>
-                            <i class="bi bi-x-circle " id="reject" (click)="rejectMatch(contact)"></i>
-                        </div>
-                    </div>
-                </div>
+            <div class="col-3 position-relative">
+              <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
             </div>
-            <br>
-
-            <h1>Waiting response</h1>
-            <hr class="hr-3">
-            <div *ngIf="contactWaiting?.length > 0">
-                <div class="row">
-                    <div class="oval waiting" *ngFor="let contact of contactWaiting">
-                        <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar"
-                             class="avatar">
-                        <h3>{{ contact?.name_user }}</h3>
-                    </div>
-                </div>
+            <div class="col-6 position-relative">
+              <button type="button" class="btn btn-dark position-absolute top-50 start-0 translate-middle">Finish</button>
             </div>
+          </div>
         </div>
-    </section>
+      </div>
+    </div>
+    <br>
+    <div class="section-title">
+      <h2>Contact request</h2>
+      <div class="line-dec"></div>
+      <span>
+        <p>Accept or decline requests</p>
+      </span>
+    </div>
+    <div *ngIf="contactRequest?.length > 0">
+      <div *ngFor="let contact of contactRequest">
+        <div class="container">
+          <div class="row justify-content-start">
+            <div class="col-3">
+              <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar"></div>
+            <div class="col-3 position-relative">
+              <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
+            </div>
+            <div class="col-1 position-relative">
+              <i class="btn btn-primary position-absolute top-50 start-0 translate-middle" id="confirm" (click)="confirmMatch(contact)">Accept</i>
+            <!-- </div>
+            <div class="col-3 position-relative"> -->
+              <i class="btn btn-dark position-absolute top-50 start-100 translate-middle" id="reject" (click)="rejectMatch(contact)">Decline</i>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br>
+    <div class="section-title">
+      <h2>Waiting response</h2>
+      <div class="line-dec"></div>
+      <span>
+        <p>Entrepreneurships that you have sent a match request</p>
+      </span>
+    </div>
+    <div *ngIf="contactWaiting?.length > 0">
+      <div class="waiting" *ngFor="let contact of contactWaiting">
+        <div class="container">
+          <div class="row justify-content-start">
+            <div class="col-3">
+              <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
+            </div>
+            <div class="col-4 position-relative">
+                <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
