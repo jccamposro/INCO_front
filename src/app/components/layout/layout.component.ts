@@ -21,15 +21,17 @@ export class LayoutComponent implements OnInit {
     myData:any;
     misObjetos: any=[];
     myObjStr:any;
+    twitter: any;
     facebook: any;
     instagram: any;
+    youtube:any;
     kawai: any;
     pinterest: any;
     reddit: any;
     snapchat: any;
     tik_tok: any;
     twitch: any;
-    twitter: any;
+    
 
     
     constructor(
@@ -97,6 +99,7 @@ export class LayoutComponent implements OnInit {
             this.tik_tok= this.misObjetos.social_networks.tik_tok;
             this.twitch= this.misObjetos.social_networks.twitch;
             this.twitter=this.misObjetos.social_networks.twitter;
+            this.youtube=this.misObjetos.social_networks.youtube;
             console.log(this.misObjetos.social_networks.facebook);
         });
 
