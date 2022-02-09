@@ -65,26 +65,35 @@
                     </button>
                 </div>
             </form>
+
             <hr>
-            <form (ngSubmit)="enviarImagen1()" >
-                <div class="form-group">
-                    <label class="col-lg-12 d-md-flex align-items-md-stretch form-group" 
-                    for="Main_file">Profile Photo</label>
-                    <input type="file" form_control_name="Main_file" name="Main_file" id="Main_file" 
-                    class="col-lg-12 d-md-flex align-items-md-stretch form-group"
-                    (change)="uploadImage($event)">
+            <form (ngSubmit)="updateProfileImage()">
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-group">
+                        <label class="col-lg-12 d-md-flex align-items-md-stretch form-group"
+                               for="profile_image">Update profile image</label>
+                        <input class="col-lg-12 d-md-flex align-items-md-stretch form-group"
+                               type="file" name="Main_file" id="profile_image"
+                               (change)="uploadProfileImage($event)">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </div>
-                <div class="form-group">
-                    <label class="col-lg-12 d-md-flex align-items-md-stretch form-group" 
-                    for="Main_file">Banner Photo</label>
-                    <input type="file" form_control_name="Main_file" name="Main_file" id="Main_file" 
-                    class="col-lg-12 d-md-flex align-items-md-stretch form-group"
-                    (change)="uploadImage($event)">
-                </div>
-                <div class="col-lg-12 d-md-flex align-items-md-stretch form-group">
-                <button type="submit" class="btn btn-primary">Update</button>
-            </div>
             </form>
+
+            <hr>
+            <form (ngSubmit)="updateCompanyPicture()" >
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="form-group">
+                        <label class="col-lg-12 d-md-flex align-items-md-stretch form-group"
+                               for="banner_picture_file">Update company picture</label>
+                        <input class="col-lg-12 d-md-flex align-items-md-stretch form-group"
+                               type="file" name="Main_file" id="banner_picture_file"
+                               (change)="uploadCompanyPicture($event)">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+
         </div>
     </section><!-- End About Section -->
 

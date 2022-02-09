@@ -8,6 +8,9 @@ import { ScriptsLoadService } from 'src/app/scripts-load.service';
 import { CompanyService } from '../../services/company.service';
 import { InfluencerService } from '../../services/influencer.service';
 import { GlobalService } from '../../services/global.service';
+import { PhotosService } from '../../services/photos.service';
+import { CacheService } from '../../services/cache.service';
+import { SocialNetworks } from '../../entities/social-networks.interface';
 
 @Component({
     selector: 'app-layout',
@@ -17,27 +20,16 @@ import { GlobalService } from '../../services/global.service';
 export class LayoutComponent implements OnInit {
 
     public user: User;
+    public socialNetworks: SocialNetworks;
+    public defaultProfileImage: string = 'https://www.eldiario.com.co/wp-content/uploads/2019/01/nn.jpg';
+    public profileImage: string = 'https://www.eldiario.com.co/wp-content/uploads/2019/01/nn.jpg';
 
-    myData:any;
-    misObjetos: any=[];
-    myObjStr:any;
-    twitter: any;
-    facebook: any;
-    instagram: any;
-    youtube:any;
-    kawai: any;
-    pinterest: any;
-    reddit: any;
-    snapchat: any;
-    tik_tok: any;
-    twitch: any;
-    
-
-    
     constructor(
         private router: Router,
         private userService: UserService,
         private authService: AuthService,
+        private cacheService: CacheService,
+        private photosService: PhotosService,
         private globalService: GlobalService,
         private companyService: CompanyService,
         private loadingService: LoadingService,
@@ -52,15 +44,18 @@ export class LayoutComponent implements OnInit {
         return this.user?.role === 1;
     }
 
-    ngOnInit(): void {
+    async ngOnInit(): Promise<void> {
         this.loadingService.enable();
-        this.userService.get().subscribe((data: { user: User }) => {
-                this.user = data?.user;
+        this.userService.get().subscribe((userData: { user: User }) => {
+                this.cacheService.setUser(userData.user);
+                this.user = userData.user;
+
                 if (this.isEntrepreneur) {
                     this.companyService.get()
                         .subscribe(
                             data => {
                                 this.loadingService.disable();
+                                this.cacheService.setCompany(data.company);
                                 this.router.navigateByUrl('/entrepreneur-profile')
                             },
                             error => {
@@ -68,10 +63,12 @@ export class LayoutComponent implements OnInit {
                                 this.router.navigateByUrl('/register-company')
                             })
                 } else {
+
                     this.influencerService.get()
                         .subscribe(
                             data => {
                                 this.loadingService.disable();
+                                this.cacheService.setInfluencer(data.influencer);
                                 this.router.navigateByUrl('/influencer-profile');
                             },
                             error => {
@@ -79,28 +76,17 @@ export class LayoutComponent implements OnInit {
                                 this.router.navigateByUrl('/register-influencer')
                             })
                 }
+
             },
             error => {
                 this.loadingService.disable();
-            }
-        );
+            });
+
+        this.photosService.getPhotoProfile().subscribe(data => this.profileImage = data.image);
 
         this.influencerService.getSocialNetworks().subscribe(data => {
-            console.warn(data);
-            this.myData = data;
-            this.myObjStr = JSON.stringify(data);
-            this.misObjetos = JSON.parse(this.myObjStr);
-            this.facebook = this.misObjetos.social_networks.facebook
-            this.instagram= this.misObjetos.social_networks.instagram;
-            this.kawai= this.misObjetos.social_networks.kawai;
-            this.pinterest= this.misObjetos.social_networks.pinterest;
-            this.reddit= this.misObjetos.social_networks.reddit;
-            this.snapchat= this.misObjetos.social_networks.snapchat;
-            this.tik_tok= this.misObjetos.social_networks.tik_tok;
-            this.twitch= this.misObjetos.social_networks.twitch;
-            this.twitter=this.misObjetos.social_networks.twitter;
-            this.youtube=this.misObjetos.social_networks.youtube;
-            console.log(this.misObjetos.social_networks.facebook);
+            this.cacheService.setSocialNetworks(data.social_networks);
+            this.socialNetworks = data.social_networks
         });
 
     }

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { InfluencerService } from 'src/app/services/influencer.service';
-import { UserService } from 'src/app/services/user.service';
-
+import { SocialNetworks } from '../../entities/social-networks.interface';
+import { CacheService } from '../../services/cache.service';
+import { Observable } from 'rxjs';
+import { User } from '../../entities/user.interface';
+import { PhotosService } from '../../services/photos.service';
 
 @Component({
     selector: 'app-influencer-profile',
@@ -9,64 +11,22 @@ import { UserService } from 'src/app/services/user.service';
     styleUrls: [ './influencer-profile.component.css' ]
 })
 export class InfluencerProfileComponent implements OnInit {
+    public name_user: string;
+    public backgroundImage: string = "https://www.wallpapertip.com/wmimgs/98-980295_elon-musk-photo-hd.jpg";
 
-    constructor(public influencerService: InfluencerService,
-                public userService: UserService) {
-
-    }
-    myData:any;
-    misObjetos: any=[];
-    myObjStr:any;
-
-    myData2:any;
-    misObjetos2: any=[];
-    myObjStr2:any;
-    facebook: any;
-    instagram: any;
-    kawai: any;
-    pinterest: any;
-    reddit: any;
-    snapchat: any;
-    tik_tok: any;
-    twitch: any;
-    twitter: any;
-    youtube: any;
-
-    name_user :any;
-    
-
-    ngOnInit(){
-        this.userService.get().subscribe((resp: any) => {
-            console.warn(resp);
-            this.name_user = resp.user.name_user;
-        });
-
-        this.influencerService.get().subscribe(data =>{
-            console.warn(data);
-              this.myData=data;
-              this.myObjStr = JSON.stringify(data);
-              this.misObjetos=JSON.parse(this.myObjStr);
-              console.log(this.misObjetos.description);
-        });
-        this.influencerService.getSocialNetworks().subscribe(data2 => {
-            console.warn(data2);
-            this.myData2 = data2;
-            this.myObjStr2 = JSON.stringify(data2);
-            this.misObjetos2 = JSON.parse(this.myObjStr2);
-            this.facebook = this.misObjetos2.social_networks.facebook
-            this.instagram= this.misObjetos2.social_networks.instagram;
-            this.kawai= this.misObjetos2.social_networks.kawai;
-            this.pinterest= this.misObjetos2.social_networks.pinterest;
-            this.reddit= this.misObjetos2.social_networks.reddit;
-            this.snapchat= this.misObjetos2.social_networks.snapchat;
-            this.tik_tok= this.misObjetos2.social_networks.tik_tok;
-            this.twitch= this.misObjetos2.social_networks.twitch;
-            this.twitter=this.misObjetos2.social_networks.twitter;
-            this.youtube=this.misObjetos2.social_networks.youtube;
-            console.log(this.misObjetos2.social_networks.facebook);
-        });
+    constructor(public cacheService: CacheService, private photoService: PhotosService) {
     }
 
+    ngOnInit() {
+        this.photoService.getPhotoInfluencer().subscribe(data => this.backgroundImage = data.image);
+    }
 
+    get socialNetworks$(): Observable<SocialNetworks> {
+        return this.cacheService.socialNetworks$
+    }
+
+    get user$(): Observable<User> {
+        return this.cacheService.user$
+    }
 
 }

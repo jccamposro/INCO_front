@@ -24,6 +24,7 @@ import { EntrepreneurCreateComponent } from './components/entrepreneur-create/en
 import { MainPageComponent } from './services/main-page/main-page.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
+import { DataGuard } from './guards/data.guard';
 
 const routes: Routes = [
     {
@@ -33,50 +34,62 @@ const routes: Routes = [
         children: [
             {
                 path: 'influencer-profile',
+                canActivate: [DataGuard],
                 component: InfluencerProfileComponent
             },
             {
                 path: 'influencer-collaboration',
+                canActivate: [DataGuard],
                 component: InfluencerCollaborationComponent
             },
             {
                 path: 'influencer-score',
+                canActivate: [DataGuard],
                 component: InfluencerScoreComponent
             },
             {
                 path: 'influencer-settings',
+                canActivate: [DataGuard],
                 component: InfluencerSettingsComponent
             },
             {
                 path: 'entrepreneur-profile',
+                canActivate: [DataGuard],
                 component: EntrepreneurProfileComponent
             },
             {
                 path: 'entrepreneur-collaboration',
+                canActivate: [DataGuard],
                 component: EntrepreneurCollaborationComponent
             },
             {
                 path: 'entrepreneur-score',
+                canActivate: [DataGuard],
                 component: EntrepreneurScoreComponent
             },
             {
                 path: 'entrepreneur-settings',
+                canActivate: [DataGuard],
                 component: EntrepreneurSettingsComponent
             },
             {
                 path: 'entrepreneur-create',
+                canActivate: [DataGuard],
                 component: EntrepreneurCreateComponent
             },
             {
                 path: 'main-page',
+                canActivate: [DataGuard],
                 component: MainPageComponent
             },
             {
                 path: 'contacts',
+                canActivate: [DataGuard],
                 component: ContactsComponent
             },
             {
                 path: 'show-profile/:id',
+                canActivate: [DataGuard],
                 component: ShowProfileComponent
             }
         ]

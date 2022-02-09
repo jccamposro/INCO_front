@@ -7,6 +7,7 @@ import { CompanyService } from '../../services/company.service';
 import { Company } from '../../entities/company.interface';
 import { LoadingService } from '../../services/loading.service';
 import { InfluencerService } from 'src/app/services/influencer.service';
+import { PhotosService } from '../../services/photos.service';
 
 @Component({
     selector: 'app-entrepreneur-settings',
@@ -25,10 +26,13 @@ export class EntrepreneurSettingsComponent implements OnInit {
     ];
 
     private company: Company;
+    private profileImage: any;
+    private companyPicture: any;
 
     constructor(
         private companyService: CompanyService,
         private formBuilder: FormBuilder,
+        private photosService: PhotosService,
         private loadingService: LoadingService,
         private influencerService: InfluencerService,
         private router: Router,
@@ -83,4 +87,42 @@ export class EntrepreneurSettingsComponent implements OnInit {
         });
         
        }
+
+    public uploadProfileImage(event: any) {
+        this.profileImage = event.target.files[0];
+    }
+
+    public updateProfileImage(): void {
+        this.loadingService.enable();
+        const formData = new FormData();
+
+        formData.append('photos', this.profileImage, this.profileImage.name);
+
+        this.photosService.uploadPhotoProfile(formData).subscribe((response: GenericResponse) => {
+            this.loadingService.disable();
+            this.toastr.success(response.response, 'Image user success!');
+        }, (error: any) => {
+            this.loadingService.disable();
+            this.toastr.error(error.error.response, 'Image user error!');
+        });
+    }
+
+    public uploadCompanyPicture(event: any) {
+        this.companyPicture = event.target.files[0];
+    }
+
+    public updateCompanyPicture(): void {
+        this.loadingService.enable();
+        const formData = new FormData();
+
+        formData.append('photos', this.companyPicture, this.companyPicture.name);
+
+        this.photosService.uploadPhotoCompany(formData).subscribe((response: GenericResponse) => {
+            this.loadingService.disable();
+            this.toastr.success(response.response, 'Image user success!');
+        }, (error: any) => {
+            this.loadingService.disable();
+            this.toastr.error(error.error.response, 'Image user error!');
+        });
+    }
 }

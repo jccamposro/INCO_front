@@ -6,24 +6,19 @@
     <div class="d-flex flex-column">
 
         <div class="profile">
-            <img src="https://www.eldiario.com.co/wp-content/uploads/2019/01/nn.jpg" alt="" class="img-fluid rounded-circle">
-            <!-- <img src="http://127.0.0.1:8000/storage/{{user?.profile_picture}}" alt="" class="img-fluid rounded-circle"> -->
+            <img [src]="profileImage" #img (error)="img.src = defaultProfileImage" alt="" class="img-fluid rounded-circle">
+
             <h1 class="text-light"><a href="../../../index.html">{{ user?.name_user }}</a></h1>
             <div class="social-links mt-3 text-center" *ngIf="!isEntrepreneur">
-                <a href={{facebook}} class="facebook" *ngIf="facebook !== null"><i class="bx bxl-facebook"></i></a>
-                <a href={{twitter}} class="twitter" *ngIf="twitter !== null"><i class="bx bxl-twitter"></i></a>
-                <a href={{instagram}} class="instagram" *ngIf="instagram !== null"><i class="bx bxl-instagram"></i></a>
-                <a href={{youtube}} class="youtube" *ngIf="youtube !== null"><i class="bx bxl-youtube"></i></a>
-                <a href={{snapchat}} class="snapchat" *ngIf="snapchat !== null"><i class="bx bxl-snapchat"></i></a>
-                <a href={{tik_tok}} class="tik_tok" *ngIf="tik_tok !== null"><i class="bx bxl-tiktok"></i></a>
-                <a href={{pinterest}} class="pinterest" *ngIf="pinterest !== null"><i class="bx bxl-pinterest"></i></a>
-                <a href={{twitch}} class="twitch" *ngIf="twitch !== null"><i class="bx bxl-twitch"></i></a>
-                <a href={{reddit}} class="reddit" *ngIf="reddit !== null"><i class="bx bxl-reddit"></i></a>
-                <!-- <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
-                <a href={{facebook}} class="facebook" ng-show="facebook"><i class="bx bxl-facebook"></i></a>
-                 -->
+                <a [href]="socialNetworks?.facebook" class="facebook" *ngIf="socialNetworks?.facebook"><i class="bx bxl-facebook"></i></a>
+                <a [href]="socialNetworks?.twitter" class="twitter" *ngIf="socialNetworks?.twitter"><i class="bx bxl-twitter"></i></a>
+                <a [href]="socialNetworks?.instagram" class="instagram" *ngIf="socialNetworks?.instagram"><i class="bx bxl-instagram"></i></a>
+                <a [href]="socialNetworks?.youtube" class="youtube" *ngIf="socialNetworks?.youtube"><i class="bx bxl-youtube"></i></a>
+                <a [href]="socialNetworks?.snapchat" class="snapchat" *ngIf="socialNetworks?.snapchat"><i class="bx bxl-snapchat"></i></a>
+                <a [href]="socialNetworks?.tik_tok" class="tik_tok" *ngIf="socialNetworks?.tik_tok"><i class="bx bxl-tiktok"></i></a>
+                <a [href]="socialNetworks?.pinterest" class="pinterest" *ngIf="socialNetworks?.pinterest"><i class="bx bxl-pinterest"></i></a>
+                <a [href]="socialNetworks?.twitch" class="twitch" *ngIf="socialNetworks?.twitch"><i class="bx bxl-twitch"></i></a>
+                <a [href]="socialNetworks?.reddit" class="reddit" *ngIf="socialNetworks?.reddit"><i class="bx bxl-reddit"></i></a>
             </div>
         </div>
 

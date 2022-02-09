@@ -7,6 +7,8 @@ import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { LoadingService } from '../../services/loading.service';
 import { InfluencerService } from '../../services/influencer.service';
+import { PhotosService } from '../../services/photos.service';
+import { CacheService } from '../../services/cache.service';
 
 @Component({
     selector: 'app-influencer-settings',
@@ -26,10 +28,14 @@ export class InfluencerSettingsComponent implements OnInit {
     ];
 
     private user: User;
+    private profileImage: any;
+    private bannerPicture: any;
 
     constructor(
         private userService: UserService,
         private formBuilder: FormBuilder,
+        private cacheService: CacheService,
+        private photosService: PhotosService,
         private loadingService: LoadingService,
         private influencerService: InfluencerService,
         private router: Router,
@@ -39,27 +45,25 @@ export class InfluencerSettingsComponent implements OnInit {
     ngOnInit(): void {
 
         this.loadingService.enable();
-        this.userService.get()
-            .subscribe(user => {
-                this.user = user.user;
 
-                this.influencerService.getInformation()
-                    .subscribe(data => {
+        this.user = this.cacheService.user$.currentValue();
 
-                        this.loadingService.disable();
-                        this.userForm = this.formBuilder.group({
-                            id: [ this.user.id, [ Validators.required ] ],
-                            description: [ data.description, [ Validators.required ] ],
-                            category: [ data.category, [ Validators.required ] ],
-                            name_user: [ this.user.name_user, [ Validators.required ] ],
-                            password: [ this.user.unencrypted_password, [ Validators.required ] ],
-                            name: [ this.user.name, [ Validators.required ] ],
-                            last_name: [ this.user.last_name, [ Validators.required ] ],
-                            email: [ this.user.email, [ Validators.required ] ],
-                            CC: [ this.user.CC, [ Validators.required ] ],
-                            gender: [ this.user.gender, [ Validators.required ] ]
-                        })
-                    }, error => this.loadingService.disable())
+        this.influencerService.getInformation()
+            .subscribe(data => {
+
+                this.loadingService.disable();
+                this.userForm = this.formBuilder.group({
+                    id: [ this.user.id, [ Validators.required ] ],
+                    description: [ data.description, [ Validators.required ] ],
+                    category: [ data.category, [ Validators.required ] ],
+                    name_user: [ this.user.name_user, [ Validators.required ] ],
+                    password: [ this.user.unencrypted_password, [ Validators.required ] ],
+                    name: [ this.user.name, [ Validators.required ] ],
+                    last_name: [ this.user.last_name, [ Validators.required ] ],
+                    email: [ this.user.email, [ Validators.required ] ],
+                    CC: [ this.user.CC, [ Validators.required ] ],
+                    gender: [ this.user.gender, [ Validators.required ] ]
+                })
             }, error => this.loadingService.disable())
     }
 
@@ -83,24 +87,41 @@ export class InfluencerSettingsComponent implements OnInit {
         }
     }
 
-    files:any;
-       uploadImage(event:any){
-        this.files = event.target.files[0];
-        console.log(this.files)
-       }
-       enviarImagen1(){
+    public uploadProfileImage(event: any) {
+        this.profileImage = event.target.files[0];
+    }
+
+    public updateProfileImage(): void {
+        this.loadingService.enable();
         const formData = new FormData();
-        formData.append("photos", this.files, this.files.name);
-        console.log(this.files.name);
-        this.influencerService.onUpload(formData).subscribe((response: GenericResponse) => {
+
+        formData.append('photos', this.profileImage, this.profileImage.name);
+
+        this.photosService.uploadPhotoProfile(formData).subscribe((response: GenericResponse) => {
             this.loadingService.disable();
             this.toastr.success(response.response, 'Image user success!');
         }, (error: any) => {
             this.loadingService.disable();
             this.toastr.error(error.error.response, 'Image user error!');
         });
-        
-       }
+    }
 
+    public uploadBannerPicture(event: any) {
+        this.bannerPicture = event.target.files[0];
+    }
 
+    public updateBannerPicture(): void {
+        this.loadingService.enable();
+        const formData = new FormData();
+
+        formData.append('photos', this.bannerPicture, this.bannerPicture.name);
+
+        this.photosService.uploadPhotoInfluencer(formData).subscribe((response: GenericResponse) => {
+            this.loadingService.disable();
+            this.toastr.success(response.response, 'Image user success!');
+        }, (error: any) => {
+            this.loadingService.disable();
+            this.toastr.error(error.error.response, 'Image user error!');
+        });
+    }
 }
