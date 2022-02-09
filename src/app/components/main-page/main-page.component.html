@@ -37,7 +37,7 @@
 					</p>
 					</mat-card-content>
 					<mat-card-actions>
-					<button mat-button (click)="createMatchIn(personaje)">MATCH</button>
+					<button class="btn btn-primary" mat-button (click)="createMatchIn(personaje)">MATCH</button>
 					</mat-card-actions>
 				</mat-card>
 			</div>
@@ -48,8 +48,8 @@
 <div *ngIf="isEntrepreneur">
 	<div  class="modal-body row">
 		<div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let personaje of influencers">
-			<div class="card-container">
-				<mat-card class="example-card">
+			<div class="card-container ">
+				<mat-card class="example-card border border-primary border-3 rounded">
 					<a [routerLink]="['/show-profile',personaje.id]" routerLinkActive="active"><mat-card-header>
 					<div mat-card-avatar class="example-header-image"></div>
 					<mat-card-title>{{personaje.name_user}}</mat-card-title>
@@ -61,7 +61,7 @@
 					</p>
 					</mat-card-content>
 					<mat-card-actions>
-					<button mat-button (click)="createMatch(personaje)">MATCH</button>
+					<button class="btn btn-primary" mat-button (click)="createMatch(personaje)">MATCH</button>
 					</mat-card-actions>
 				</mat-card>
 			</div>
