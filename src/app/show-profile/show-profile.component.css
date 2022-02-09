@@ -16,7 +16,7 @@ body {
 }
 
 /*  p   */
-p{
+.p-two{
   font-size: 20px;
 }
 
@@ -240,12 +240,10 @@ figure.hover:after {
  .example-header-image {
 	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
 	background-size: cover;
-} 
-
-mat-card-content{ 
-	height:150px;
 }
-p {
+
+.p-card {
+  height: 175px;
 	overflow: hidden;
 	display: -webkit-box;
 	text-align : justify;
@@ -338,3 +336,52 @@ p {
   color: #3931af;
 
 }
+/* Card History */
+
+.card-container{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.example-card {
+	max-width: 400px ;
+	margin: 3%;
+
+  }
+  
+.example-header-image {
+	background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+	background-size: cover;
+  }
+
+  .card-container img{
+    width:  400px;
+    height: 350px;
+    object-fit: cover;
+  }
+
+
+  @media (max-width: 1000px) {
+    .card-container img{
+      width:300px;
+      height:300px;
+    }
+
+  }
+
+  @media (max-width: 850px) {
+    .card-container img{
+      width:200px;
+    height: 200px;
+    }
+
+  }
+
+  @media (max-width: 600px) {
+    .card-container img{
+    width: 100%;
+    height: 100%;
+    }
+
+  }

@@ -74,3 +74,6 @@ p {
 	-webkit-line-clamp: 8;
 	-webkit-box-orient: vertical;
   }
+mat-card-title{
+	display: inline;
+}
