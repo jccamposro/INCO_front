@@ -15,7 +15,7 @@ body {
   box-sizing: inherit;
 }
 
-p{
+.p-one{
   font-size: 18px;
 }
 
@@ -245,7 +245,7 @@ figure.hover:after {
 }
 
 .example-card {
-	max-width: 475px ;
+	max-width: 400px ;
 	margin: 3%;
 
   }
@@ -256,14 +256,17 @@ figure.hover:after {
   }
 
   .card-container p{
-    padding: 20px 0px 0px 0px;
+    height: 175px;
+    overflow: hidden;
+    display: -webkit-box;
+    text-align : justify;
+    -webkit-line-clamp: 8;
+    -webkit-box-orient: vertical;
   }
 
   .card-container img{
-    margin: 5px 3px 0px 1.5px;
-    float: left;
     width:  400px;
-    height: 400px;
+    height: 350px;
     object-fit: cover;
   }
 
@@ -271,7 +274,7 @@ figure.hover:after {
   @media (max-width: 1000px) {
     .card-container img{
       width:300px;
-    height: 300px;
+      height:300px;
     }
 
   }
@@ -291,4 +294,3 @@ figure.hover:after {
     }
 
   }
-
