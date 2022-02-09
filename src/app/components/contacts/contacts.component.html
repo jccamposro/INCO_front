@@ -4,9 +4,11 @@
     <div class="section-title">
       <h2>Contact realised</h2>
       <div class="line-dec"></div>
-      <span>
-        <p>See the contacts you have made, you can finish them whenever you want</p>
-      </span>
+      <section id="about" class="about">
+        <div class="justify-content-center">
+            <p class="fs-4">See the contacts you have made, you can finish them whenever you want</p>
+        </div>
+      </section>
     </div>
 
     <div *ngIf="contactRealised?.length > 0">
@@ -17,13 +19,15 @@
               <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
             </div>
             <div class="col-3 position-relative">
-              <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
+              <div class="position-absolute top-50 start-20 translate-middle fs-3">{{ contact?.name_user }}</div>
             </div>
             <div class="col-6 position-relative">
-              <button type="button" class="btn btn-dark position-absolute top-50 start-0 translate-middle">Finish</button>
+              <button type="button"
+                class="btn btn-dark position-absolute top-50 start-50 translate-middle">Finish</button>
             </div>
           </div>
         </div>
+        <div class="border-top my-3"></div>
       </div>
     </div>
     <br>
@@ -31,7 +35,7 @@
       <h2>Contact request</h2>
       <div class="line-dec"></div>
       <span>
-        <p>Accept or decline requests</p>
+        <p class="fs-4">Accept or decline requests</p>
       </span>
     </div>
     <div *ngIf="contactRequest?.length > 0">
@@ -41,16 +45,20 @@
             <div class="col-3">
               <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar"></div>
             <div class="col-3 position-relative">
-              <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
+              <div class="position-absolute top-50 start-20 translate-middle fs-3">{{ contact?.name_user }}</div>
             </div>
-            <div class="col-1 position-relative">
-              <i class="btn btn-primary position-absolute top-50 start-0 translate-middle" id="confirm" (click)="confirmMatch(contact)">Accept</i>
-            <!-- </div>
+            <div class="col-6 position-relative">
+              <div class="btn-group position-absolute top-50 start-50 translate-middle">
+                <button type="button" class="btn btn-primary " id="confirm"
+                  (click)="confirmMatch(contact)">Accept</button>
+                <!-- </div>
             <div class="col-3 position-relative"> -->
-              <i class="btn btn-dark position-absolute top-50 start-100 translate-middle" id="reject" (click)="rejectMatch(contact)">Decline</i>
+                <button type="button" class="btn btn-dark" id="reject" (click)="rejectMatch(contact)">Decline</button>
+              </div>
             </div>
           </div>
         </div>
+        <div class="border-top my-3"></div>
       </div>
     </div>
     <br>
@@ -58,7 +66,7 @@
       <h2>Waiting response</h2>
       <div class="line-dec"></div>
       <span>
-        <p>Entrepreneurships that you have sent a match request</p>
+        <p class="fs-4">Entrepreneurships that you have sent a match request</p>
       </span>
     </div>
     <div *ngIf="contactWaiting?.length > 0">
@@ -69,10 +77,11 @@
               <img src="https://material.angular.io/assets/img/examples/shiba1.jpg" alt="Avatar" class="avatar">
             </div>
             <div class="col-4 position-relative">
-                <div class="position-absolute top-50 start-20 translate-middle">{{ contact?.name_user }}</div>
+              <div class="position-absolute top-50 start-20 translate-middle fs-3">{{ contact?.name_user }}</div>
             </div>
           </div>
         </div>
+        <div class="border-top my-3"></div>
       </div>
     </div>
   </div>

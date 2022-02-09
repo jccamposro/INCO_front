@@ -21,7 +21,7 @@ import { LayoutGuard } from './guards/layout.guard';
 import { LoginGuard } from './guards/login.guard';
 import { LayoutComponent } from './components/layout/layout.component';
 import { EntrepreneurCreateComponent } from './components/entrepreneur-create/entrepreneur-create.component';
-import { MainPageComponent } from './components/main-page/main-page.component';
+import { MainPageComponent } from './services/main-page/main-page.component';
 import { ContactsComponent } from './components/contacts/contacts.component';
 import { ShowProfileComponent } from './show-profile/show-profile.component';
 
