@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { InfluencerService } from 'src/app/services/influencer.service';
+import { UserService } from 'src/app/services/user.service';
 
 
 @Component({
@@ -9,7 +10,8 @@ import { InfluencerService } from 'src/app/services/influencer.service';
 })
 export class InfluencerProfileComponent implements OnInit {
 
-    constructor(public influencerService: InfluencerService) {
+    constructor(public influencerService: InfluencerService,
+                public userService: UserService) {
 
     }
     myData:any;
@@ -29,9 +31,16 @@ export class InfluencerProfileComponent implements OnInit {
     twitch: any;
     twitter: any;
     youtube: any;
+
+    name_user :any;
     
 
     ngOnInit(){
+        this.userService.get().subscribe((resp: any) => {
+            console.warn(resp);
+            this.name_user = resp.user.name_user;
+        });
+
         this.influencerService.get().subscribe(data =>{
             console.warn(data);
               this.myData=data;

@@ -26,7 +26,7 @@
 		<div class="col-xs-12 col-sm-6 col-md-4" *ngFor="let personaje of ventures">
 			<div class="card-container">
 				<mat-card class="example-card">
-					<a [routerLink]="['/show-profile',personaje.id]" routerLinkActive="active"><mat-card-header>
+					<a [routerLink]="['/show-profile',personaje.id_venture]" routerLinkActive="active"><mat-card-header>
 					<div mat-card-avatar class="example-header-image"></div>
 					<mat-card-title>{{personaje.name}}</mat-card-title>
 					</mat-card-header></a>

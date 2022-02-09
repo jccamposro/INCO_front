@@ -24,6 +24,8 @@ export class ShowProfileComponent implements OnInit {
    misObjetos: any=[];
    myObjStr:any;
 
+  name : any;
+  description: any;
 
    isEntrepreneur = false;
    isInfluencer = false;
@@ -68,7 +70,10 @@ export class ShowProfileComponent implements OnInit {
           this.myData = data;
           this.myObjStr = JSON.stringify(data);
           this.misObjetos = JSON.parse(this.myObjStr);
-          console.log(this.misObjetos.description);
+          this.name = this.misObjetos.name_user;
+          console.log(this.name)
+          this.description = this.misObjetos.description;
+          console.log(this.description)
       });
 
         } else if (resp.user.role == 2) {
@@ -77,7 +82,9 @@ export class ShowProfileComponent implements OnInit {
             this.myData = data;
             this.myObjStr = JSON.stringify(data);
             this.misObjetos = JSON.parse(this.myObjStr);
-            console.log(this.misObjetos.description);
+            this.name = this.misObjetos.name;
+            console.log(this.name)
+            this.description = this.misObjetos.description;
         });
         }
     });
